@@ -1,27 +1,55 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .all-\[unset\] {
+    all: unset;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+:root {
+  --body-regular-body-2-font-family: "Inter-Regular", Helvetica;
+  --body-regular-body-2-font-size: 16px;
+  --body-regular-body-2-font-style: normal;
+  --body-regular-body-2-font-weight: 400;
+  --body-regular-body-2-letter-spacing: 0px;
+  --body-regular-body-2-line-height: 24px;
+  --brandprimary: rgba(76, 175, 79, 1);
+  --building: rgba(220, 220, 220, 1);
+  --button-link-medium-font-family: "Inter-Regular", Helvetica;
+  --button-link-medium-font-size: 16px;
+  --button-link-medium-font-style: normal;
+  --button-link-medium-font-weight: 400;
+  --button-link-medium-letter-spacing: 0px;
+  --button-link-medium-line-height: 20px;
+  --default-white: rgba(255, 255, 255, 1);
+  --heading-headline-2-font-family: "Inter-SemiBold", Helvetica;
+  --heading-headline-2-font-size: 36px;
+  --heading-headline-2-font-style: normal;
+  --heading-headline-2-font-weight: 600;
+  --heading-headline-2-letter-spacing: 0px;
+  --heading-headline-2-line-height: 44px;
+  --landcover: rgba(197, 225, 178, 0.35);
+  --neutraldgrey: rgba(77, 77, 77, 1);
+  --neutralsilver: rgba(245, 247, 250, 1);
+  --neutralwhite: rgba(255, 255, 255, 1);
+  --road: rgba(107, 122, 133, 1);
+  --road-font-family: "Inter-Regular", Helvetica;
+  --road-font-size: 8.406956672668457px;
+  --road-font-style: normal;
+  --road-font-weight: 400;
+  --road-letter-spacing: 0px;
+  --road-line-height: normal;
+  --roadnetwork: rgba(255, 255, 255, 1);
+  --roadnetwork-casing: rgba(217, 217, 217, 1);
+  --roadpath: rgba(204, 204, 204, 1);
+  --stadium: rgba(227, 242, 207, 0.55);
+  --text-gray-900: rgba(24, 25, 31, 1);
+  --tunnel: rgba(247, 247, 247, 1);
+  --tunnel-casing: rgba(217, 217, 217, 1);
+  --tunnelpath: rgba(230, 230, 230, 1);
+  --variable-collection-blue-secondary: rgba(42, 111, 151, 1);
+  --variable-collection-dark-blue: rgba(1, 58, 99, 1);
+  --variable-collection-dark-green: rgba(45, 106, 79, 1);
+  --variable-collection-light-blue: rgba(44, 125, 160, 1);
 }
