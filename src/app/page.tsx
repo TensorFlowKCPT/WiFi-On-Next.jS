@@ -3,6 +3,7 @@ import React from "react";
 import Header from "components/header"; 
 import Top from "components/Top";
 import Providers from "components/providers";
+import Tariffs from "components/tariffs";
 
 const Home: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
       <Header />
       <Top />
       <Providers />
+      <Tariffs />
     </div>
   );
 };
