@@ -15,9 +15,16 @@ export const Top = (): JSX.Element => {
             Наш сервис поможет вам с выбором!
           </p>
         </div>
-        <button className="w-full md:w-auto h-16 rounded-md shadow-md bg-variable-collection-blue-secondary text-white text-xl font-semibold">
-          Оставить заявку
-        </button>
+        <div className="flex flex-col md:flex-row items-center md:w-full md:gap-4">
+          <input
+            type="text"
+            placeholder="Введите адрес"
+            className="w-full md:w-[200px] h-12 md:h-[40px] px-4 py-2 rounded-[12px] border-[2px] border-gray-300 bg-white mb-4 md:mb-0"
+          />
+          <button className="w-full md:w-auto h-16 md:h-[40px] rounded-md shadow-md bg-variable-collection-blue-secondary text-white text-xl font-semibold">
+            Оставить заявку
+          </button>
+        </div>
       </div>
       {/* Дополнительный контент для больших экранов, если необходимо */}
     </div>
