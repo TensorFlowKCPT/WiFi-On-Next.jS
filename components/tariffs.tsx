@@ -15,6 +15,18 @@ export const Tariffs = (): JSX.Element => {
       imageUrl: "path/to/image2.jpg",
       provider: "Провайдер 2",
     },
+    {
+      title: "Тариф 3",
+      price: "$15",
+      imageUrl: "path/to/image2.jpg",
+      provider: "Провайдер 2",
+    },
+    {
+      title: "Тариф 4",
+      price: "$15",
+      imageUrl: "path/to/image2.jpg",
+      provider: "Провайдер 2",
+    },
     // Добавьте другие тарифы по аналогии
   ];
 

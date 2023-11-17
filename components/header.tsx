@@ -4,7 +4,7 @@ const Header = (): JSX.Element => {
   return (
     <header className="relative w-full h-[84px] bg-neutralsilver">
         {/* Логотип для всех устройств */}
-        <p className="md:hidden absolute top-[-10px] left-[16px] text-shadow:0px_4px_4px_#00000040 font-heading-headline-2 text-transparent text-[length:var(--heading-headline-2-font-size)] text-left tracking-[var(--heading-headline-2-letter-spacing)] leading-[var(--heading-headline-2-line-height)] whitespace-nowrap font-[number:var(--heading-headline-2-font-weight)]">
+        <p className="absolute top-[-10px] left-[16px] text-shadow:0px_4px_4px_#00000040 font-heading-headline-2 text-transparent text-[length:var(--heading-headline-2-font-size)] text-left tracking-[var(--heading-headline-2-letter-spacing)] leading-[var(--heading-headline-2-line-height)] whitespace-nowrap font-[number:var(--heading-headline-2-font-weight)]">
         <span className="text-black font-heading-headline-2">On-</span>
         <span className="text-[#2a6f97] font-heading-headline-2">Wi</span>
         <span className="text-[#013a63] font-heading-headline-2">Fi</span>
