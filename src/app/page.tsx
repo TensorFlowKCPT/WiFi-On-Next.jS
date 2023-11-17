@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "components/header"; 
+import Footer from "components/footer"; 
 import Top from "components/Top";
 import Providers from "components/providers";
 import Tariffs from "components/tariffs";
@@ -12,7 +13,8 @@ const App: React.FC = () => {
       <Top />
       <Providers />
       <Tariffs />
-      <ReviewsList /> 
+      <ReviewsList />
+      <Footer/>
     </div>
   );
 };
