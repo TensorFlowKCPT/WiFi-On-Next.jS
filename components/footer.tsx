@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'components/Footer.module.css';  // Путь к вашему файлу стилей
+import styles from 'components/Footer.module.css';  
 
 const Footer = () => {
   return (

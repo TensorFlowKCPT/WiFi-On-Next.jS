@@ -1,0 +1,26 @@
+/* Add this style to underline links with animation on hover */
+.hidden.md\:flex a,
+.hidden.md\:flex a:hover,
+.hidden.md\:flex a:active,
+.hidden.md\:flex a:visited {
+  text-decoration: none;
+  position: relative;
+}
+
+.hidden.md\:flex a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px; /* Adjust the underline height as needed */
+  background-color: #000; /* Adjust the underline color as needed */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease; /* Adjust the animation duration and easing as needed */
+}
+
+.hidden.md\:flex a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

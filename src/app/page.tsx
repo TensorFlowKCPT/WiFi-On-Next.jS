@@ -3,6 +3,7 @@ import Header from "components/header";
 import Footer from "components/footer"; 
 import Top from "components/Top";
 import Providers from "components/providers";
+import { AnimatePresence } from 'framer-motion';
 import Tariffs from "components/tariffs";
 import ReviewsList from "components/reviewContainer";
 

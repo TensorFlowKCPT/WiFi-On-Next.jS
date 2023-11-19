@@ -1,4 +1,5 @@
 import React from "react";
+import styles from 'components/headerAnim.css';  
 
 const Header = (): JSX.Element => {
   return (
@@ -21,28 +22,28 @@ const Header = (): JSX.Element => {
         </button>
 
 
-      {/* Меню для ПК */}
+          {/* Меню для ПК */}
       <div className="hidden md:flex items-center justify-center gap-10 px-20 h-full">
-        <div className="inline-flex items-center gap-10 relative">
-          <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
+        <a href="/tariffs">
+          <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap {styles['nav-link']}" >
             Тарифы
           </div>
-        </div>
-        <div className="inline-flex items-center gap-10 relative">
+        </a>
+        <a href="/providers" className={styles['nav-link']}>
           <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             Провайдеры
           </div>
-        </div>
-        <div className="inline-flex items-center gap-10 relative">
+        </a>
+        <a href="/reviews" className={styles['nav-link']}>
           <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             Отзывы клиентов
           </div>
-        </div>
-        <div className="inline-flex items-center gap-10 relative">
+        </a>
+        <a href="/about" className={styles['nav-link']}>
           <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             О нас
           </div>
-        </div>
+        </a>
         <div className="relative flex-0-auto" />
         <a
           className="relative font-medium text-black text-[20px] whitespace-nowrap"
