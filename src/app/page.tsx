@@ -6,6 +6,7 @@ import Providers from "components/providers";
 import { AnimatePresence } from 'framer-motion';
 import type { Metadata } from 'next';
 import Tariffs from "components/tariffs";
+import Link from 'next/link';
 import ReviewsList from "components/reviewContainer";
 export const metadata: Metadata = {
   title: 'WiFi-On',

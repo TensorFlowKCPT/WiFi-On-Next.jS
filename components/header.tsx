@@ -1,5 +1,6 @@
 import React from "react";
 import styles from 'components/headerAnim.css';  
+import Link from 'next/link';
 
 const Header = (): JSX.Element => {
   return (
@@ -24,7 +25,7 @@ const Header = (): JSX.Element => {
 
           {/* Меню для ПК */}
       <div className="hidden md:flex items-center justify-center gap-10 px-20 h-full">
-        <a href="/tariffs">
+        <a href="/Tariffs">
           <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap {styles['nav-link']}" >
             Тарифы
           </div>
