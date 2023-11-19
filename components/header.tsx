@@ -7,9 +7,9 @@ const Header = (): JSX.Element => {
     <header className="relative w-full h-[84px] bg-neutralsilver">
         {/* Логотип для всех устройств */}
         <p className="absolute top-[-10px] left-[16px] text-shadow:0px_4px_4px_#00000040 font-heading-headline-2 text-transparent text-[length:var(--heading-headline-2-font-size)] text-left tracking-[var(--heading-headline-2-letter-spacing)] leading-[var(--heading-headline-2-line-height)] whitespace-nowrap font-[number:var(--heading-headline-2-font-weight)]">
-        <span className="text-black font-heading-headline-2">On-</span>
-        <span className="text-[#2a6f97] font-heading-headline-2">Wi</span>
-        <span className="text-[#013a63] font-heading-headline-2">Fi</span>
+          <a href="/" className="text-black font-heading-headline-2 no-underline">On-</a>
+          <a href="/" className="text-[#2a6f97] font-heading-headline-2 no-underline">Wi</a>
+          <a href="/" className="text-[#013a63] font-heading-headline-2 no-underline">Fi</a>
         </p>
 
 
@@ -30,17 +30,17 @@ const Header = (): JSX.Element => {
             Тарифы
           </div>
         </a>
-        <a href="/providers" className={styles['nav-link']}>
+        <a href="/Providers" className={styles['nav-link']}>
           <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             Провайдеры
           </div>
         </a>
-        <a href="/reviews" className={styles['nav-link']}>
+        <a href="/Reviews" className={styles['nav-link']}>
           <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             Отзывы клиентов
           </div>
         </a>
-        <a href="/about" className={styles['nav-link']}>
+        <a href="/About" className={styles['nav-link']}>
           <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             О нас
           </div>

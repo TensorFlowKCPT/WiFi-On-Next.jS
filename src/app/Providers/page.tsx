@@ -4,11 +4,11 @@ import type { Metadata } from 'next';
 import Header from "components/header";
 
 export const metadata: Metadata = {
-  title: 'Тарифы',
+  title: 'Провайдеры',
   description: 'Лучшие провайдеры',
 }
 
-const tariffs: React.FC = () => {
+const providers: React.FC = () => {
     return (
       <div>
         <Header />
@@ -16,4 +16,4 @@ const tariffs: React.FC = () => {
     );
   };
 
-export default tariffs;
+export default providers;
