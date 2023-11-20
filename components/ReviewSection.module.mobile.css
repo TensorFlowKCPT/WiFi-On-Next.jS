@@ -1,0 +1,29 @@
+/* Footer.mobile.css */
+
+/* Прячем горизонтальные ссылки на мобильных устройствах */
+@media (max-width: 768px) {
+    .max-w-7xl {
+      padding: 0 16px; /* Примерная подгонка отступов для мобильных устройств */
+    }
+  
+    .md\:flex {
+      flex-direction: column;
+    }
+  
+    .md\:mx-auto {
+      margin: 0;
+    }
+  
+    .md\:justify-between {
+      justify-content: center;
+    }
+  
+    .md\:mt-8 {
+      margin-top: 16px;
+    }
+  
+    .text-center {
+      text-align: center;
+    }
+  }
+  

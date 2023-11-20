@@ -1,5 +1,7 @@
 import React from 'react';
 import ReviewCard from 'components/reviewCard'; // Путь к вашему компоненту отзыва
+import mobileStyles from 'components/ReviewSection.module.mobile.css';
+
 
 export const Reviews = (): JSX.Element => {
   const reviews = [
@@ -37,14 +39,9 @@ export const Reviews = (): JSX.Element => {
   ];
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-24">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-semibold text-neutraldgrey">Отзывы клиентов</h2>
-        <p className="text-xl text-variable-collection-dark-blue">
-          Только честные отзывы о тарифах и провайдерах!
-        </p>
-      </div>
 
+    <div className={`max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-24 ${mobileStyles.mobileReviewSection}`}>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         {/* Блок с отзывами */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {reviews.map((review, index) => (
@@ -67,7 +64,6 @@ export const Reviews = (): JSX.Element => {
             </button>
         </div>
         </div>
-
     </div>
 
   );

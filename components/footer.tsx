@@ -3,7 +3,7 @@ import styles from 'components/Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-neutral-900 py-8 mt-8">
+    <footer className={`w-full bg-neutral-900 py-8 mt-8 ${styles.mobileFooter}`}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
         <a href="#" className={styles['nav-link']}>Тариф</a>
         <a href="#" className={styles['nav-link']}>Провайдеры</a>
