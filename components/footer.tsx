@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer className={`w-full bg-neutral-900 py-8 mt-8 ${styles.mobileFooter}`}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-        <a href="#" className={styles['nav-link']}>Тариф</a>
-        <a href="#" className={styles['nav-link']}>Провайдеры</a>
-        <a href="#" className={styles['nav-link']}>Отзывы клиентов</a>
-        <a href="#" className={styles['nav-link']}>О нас</a>
+        <a href="/Tariffs" className={styles['nav-link']}>Тариф</a>
+        <a href="/Providers" className={styles['nav-link']}>Провайдеры</a>
+        <a href="/Reviews" className={styles['nav-link']}>Отзывы клиентов</a>
+        <a href="/About" className={styles['nav-link']}>О нас</a>
       </div>
       <div className="max-w-7xl mx-auto mt-8 flex flex-col items-center">
         <div className="w-full h-px bg-gray-200" />

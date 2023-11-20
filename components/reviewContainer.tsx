@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import ReviewCard from 'components/reviewCard'; // Путь к вашему компоненту отзыва
 import mobileStyles from 'components/ReviewSection.module.mobile.css';
 
@@ -57,11 +58,13 @@ export const Reviews = (): JSX.Element => {
                 Оставить отзыв
             </div>
             </button>
-            <button className="w-[360px] h-[47px] relative bg-cyan-700 rounded-[5px] border border-cyan-700 focus:outline-none">
-            <div className="left-[128px] top-[16px] absolute text-white text-sm font-semibold font-inter uppercase leading-[15px] tracking-wide">
-                Все отзывы
-            </div>
-            </button>
+            <Link href="/Reviews">
+              <button className="w-[360px] h-[47px] relative bg-cyan-700 rounded-[5px] border border-cyan-700 focus:outline-none">
+                <div className="left-[128px] top-[16px] absolute text-white text-sm font-semibold font-inter uppercase leading-[15px] tracking-wide">
+                  Все отзывы
+                </div>
+              </button>
+            </Link>
         </div>
         </div>
     </div>
