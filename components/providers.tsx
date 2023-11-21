@@ -1,8 +1,37 @@
-import React from "react";
+'use client';
+import React from 'react';
+import Link from 'next/link';
+import ReviewCard from 'components/reviewCard'; 
+import { motion } from 'framer-motion';
+import { useRef } from "react";
+import { useInView } from "framer-motion"
+import mobileStyles from 'components/ReviewSection.module.mobile.css';
 
-const Providers = (): JSX.Element => {
+
+function Section({ children }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <div className="flex flex-col items-center px-4 py-8 md:px-16 lg:px-32">
+    <section ref={ref}>
+      <span
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+        }}
+      >
+        {children}
+      </span>
+    </section>
+  );
+}
+
+export default function App() {
+  return (
+    <>
+      <Section>
+      <div className="flex flex-col items-center px-4 py-8 md:px-16 lg:px-32">
       <div className="mb-8 text-3xl font-semibold text-center md:text-left md:text-6xl text-variable-collection-dark-green-duplicate">
         Лучшие провайдеры
       </div>
@@ -28,8 +57,7 @@ const Providers = (): JSX.Element => {
           }
         `}
       </style>
-    </div>
+    </div></Section>
+    </>
   );
-};
-
-export default Providers;
+}

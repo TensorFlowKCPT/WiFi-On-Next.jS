@@ -3,6 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 import ReviewCard from 'components/reviewCard'; 
 import { motion } from 'framer-motion';
+import { useRef } from "react";
+import { useInView } from "framer-motion"
 import mobileStyles from 'components/ReviewSection.module.mobile.css';
 
 
@@ -46,9 +48,8 @@ export const Reviews = (): JSX.Element => {
       },
     // Добавьте другие отзывы по аналогии
   ];
-
   return (
-
+    <motion.section>
     <motion.div {...fadeInAnimation} className={`max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-24 ${mobileStyles.mobileReviewSection}`}>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         {/* Блок с отзывами */}
@@ -76,7 +77,7 @@ export const Reviews = (): JSX.Element => {
         </motion.div>
         </motion.div>
     </motion.div>
-
+  </motion.section>
   );
 };
 export default Reviews;

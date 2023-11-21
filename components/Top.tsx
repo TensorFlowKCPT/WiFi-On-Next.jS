@@ -1,4 +1,6 @@
+'use client';
 import React from "react";
+import { motion } from "framer-motion";
 
 export const Top = (): JSX.Element => {
   return (
@@ -21,9 +23,14 @@ export const Top = (): JSX.Element => {
             placeholder="Введите адрес"
             className="flex-grow h-12 md:h-[40px] px-4 py-2 rounded-[12px] border-[2px] border-gray-300 bg-white mb-4 md:mb-0"
           />
-          <button className="flex-grow text-white text-center text-3xl font-semibold leading-6 whitespace-nowrap justify-center items-center shadow-sm bg-[#2a6f97] px-5 py-6 rounded-xl">
+          <motion.button 
+          className="flex-grow text-white text-center text-3xl font-semibold leading-6 whitespace-nowrap justify-center items-center shadow-sm bg-[#2a6f97] px-5 py-6 rounded-xl"
+          whileHover={{ scale: 1.04 }}
+          transition={{ type: "tap", stiffness: 300, damping: 10 }}
+          >
+          
             Оставить заявку
-          </button>
+          </motion.button>
         </div>
       </div>
       {/* Дополнительный контент для больших экранов, если необходимо */}

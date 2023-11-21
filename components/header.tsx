@@ -1,12 +1,20 @@
+'use client';
 import React from "react";
 import styles from 'components/headerAnim.css';  
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const Header = (): JSX.Element => {
+    const fadeInAnimation = {
+      initial: { opacity: 0, y: 50 },
+      animate: { opacity: 1, y: 0 },
+      exit: { opacity: 0, y: 50 },
+      transition: { duration: 0.8 }, 
+    };
   return (
     <header className="relative w-full h-[84px] bg-neutralsilver">
       {/* WiFi Icon */}
-      <div className="absolute top-[10px] left-[16px]">
+      <motion.div {...fadeInAnimation} className="absolute top-[10px] left-[16px]">
         <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_58_208)">
             <path d="M47.6089 10.4663H33.654C32.7004 10.4663 31.9097 9.67548 31.9097 8.7219C31.9097 7.76831 32.7004 6.97754 33.654 6.97754H47.6089C48.5625 6.97754 49.3532 7.76831 49.3532 8.7219C49.3532 9.67548 48.5625 10.4663 47.6089 10.4663Z" fill="#292D32"/>
@@ -27,49 +35,49 @@ const Header = (): JSX.Element => {
             </filter>
           </defs>
         </svg>
-      </div>
+      </motion.div>
 
       {/* Логотип для всех устройств */}
-      <p className="absolute top-[-10px] left-[90px] text-shadow:0px_4px_4px_#00000040 font-heading-headline-2 text-transparent text-[length:var(--heading-headline-2-font-size)] text-left tracking-[var(--heading-headline-2-letter-spacing)] leading-[var(--heading-headline-2-line-height)] whitespace-nowrap font-[number:var(--heading-headline-2-font-weight)]">
+      <motion.p {...fadeInAnimation} className="absolute top-[-10px] left-[90px] text-shadow:0px_4px_4px_#00000040 font-heading-headline-2 text-transparent text-[length:var(--heading-headline-2-font-size)] text-left tracking-[var(--heading-headline-2-letter-spacing)] leading-[var(--heading-headline-2-line-height)] whitespace-nowrap font-[number:var(--heading-headline-2-font-weight)]">
         <a href="/" className="text-black font-heading-headline-2 no-underline">On-</a>
         <a href="/" className="text-[#2a6f97] font-heading-headline-2 no-underline">Wi</a>
         <a href="/" className="text-[#013a63] font-heading-headline-2 no-underline">Fi</a>
-      </p>
+      </motion.p>
 
 
         <button className="md:hidden flex items-center gap-2 px-2 py-1 absolute top-[17px] right-[16px]">
-        <div className="w-[16px] h-[12px]">
+        <motion.div {...fadeInAnimation} className="w-[16px] h-[12px]">
             <img className="fixed w-full h-full top-0 left-0" alt="Vector" src="vector.svg" />
-        </div>
-        <div className="font-semibold text-default-white text-[12px] text-center leading-[16px] whitespace-nowrap">
+        </motion.div>
+        <motion.div {...fadeInAnimation} className="font-semibold text-default-white text-[12px] text-center leading-[16px] whitespace-nowrap">
             Меню
-        </div>
+        </motion.div>
         </button>
 
 
           {/* Меню для ПК */}
-      <div className="hidden md:flex items-center justify-center gap-10 px-20 h-full">
+      <motion.div {...fadeInAnimation} className="hidden md:flex items-center justify-center gap-10 px-20 h-full">
         <a href="/Tariffs">
-          <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap {styles['nav-link']}" >
+          <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap {styles['nav-link']}" >
             Тарифы
-          </div>
+          </motion.div>
         </a>
         <a href="/Providers" className={styles['nav-link']}>
-          <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
+          <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             Провайдеры
-          </div>
+          </motion.div>
         </a>
         <a href="/Reviews" className={styles['nav-link']}>
-          <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
+          <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             Отзывы клиентов
-          </div>
+          </motion.div>
         </a>
         <a href="/About" className={styles['nav-link']}>
-          <div className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
+          <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             О нас
-          </div>
+          </motion.div>
         </a>
-        <div className="relative flex items-center gap-2">
+        <motion.div {...fadeInAnimation} className="relative flex items-center gap-2">
           <a
             className="relative font-medium text-black text-[20px] whitespace-nowrap"
             href="tel:8 (800) 550-07-92"
@@ -83,15 +91,20 @@ const Header = (): JSX.Element => {
           <path d="M17.3334 19.9996H3.61964C2.9118 19.9996 2.25881 19.6671 1.78094 19.0639C1.30306 18.4606 1.06149 17.6634 1.10052 16.8197C1.10474 16.7227 1.225 14.4256 2.44025 12.1108C3.1597 10.7406 4.11334 9.64872 5.27373 8.86539C6.70946 7.89692 8.45955 7.40576 10.4765 7.40576C12.4935 7.40576 14.2436 7.89692 15.6793 8.86539C16.8408 9.64872 17.7944 10.7406 18.5128 12.1108C19.7281 14.4268 19.8483 16.7239 19.8525 16.8197C19.8916 17.6634 19.65 18.4606 19.1721 19.0639C18.6943 19.6671 18.0413 19.9996 17.3334 19.9996ZM10.4765 8.66515C7.18839 8.66515 4.7927 10.0354 3.35697 12.7367C2.27041 14.7807 2.15543 16.87 2.15437 16.8914C2.13117 17.3851 2.27147 17.8498 2.54785 18.1987C2.82424 18.5475 3.20506 18.7402 3.6207 18.7402H17.3345C17.7491 18.7402 18.1299 18.5475 18.4073 18.1987C18.6848 17.8498 18.824 17.3851 18.8008 16.8902C18.7998 16.87 18.6837 14.7807 17.5982 12.7367C16.1614 10.0354 13.7657 8.66515 10.4786 8.66515H10.4765Z" fill="black"/>
           <path d="M10.4765 17.4816C8.73167 17.4816 7.31177 15.7865 7.31177 13.7034C7.31177 11.6204 8.73167 9.92529 10.4765 9.92529C12.2213 9.92529 13.6412 11.6204 13.6412 13.7034C13.6412 15.7865 12.2213 17.4816 10.4765 17.4816ZM10.4765 11.1847C9.31293 11.1847 8.36667 12.3143 8.36667 13.7034C8.36667 15.0925 9.31293 16.2222 10.4765 16.2222C11.64 16.2222 12.5863 15.0925 12.5863 13.7034C12.5863 12.3143 11.64 11.1847 10.4765 11.1847Z" fill="black"/>
         </svg>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Кнопка "Оставить заявку" для всех устройств */}
-      <button className="hidden md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] absolute top-[17px] right-[16px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border">
-        <div className="relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap">
+      <motion.button {...fadeInAnimation} 
+      className="hidden md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] absolute top-[17px] right-[16px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
+      whileHover={{ scale: 1.04 }}
+      transition={{ type: "tap", stiffness: 300, damping: 10 }}>
+        <motion.div {...fadeInAnimation} className="relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "tap", stiffness: 300, damping: 10 }}>
           Оставить заявку
-        </div>
-      </button>
+        </motion.div>
+      </motion.button>
     </header>
   );
 };
