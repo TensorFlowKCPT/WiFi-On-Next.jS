@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Header from "components/header";
 import Sidemenu from "components/filterSideMenu";
 import Tariffs from "components/tariffs";
+import { motion } from 'framer-motion';
 
 export const metadata: Metadata = {
   title: 'Тарифы',
@@ -16,7 +17,7 @@ const tariffs: React.FC = () => {
       <Header />
       <div className="flex">
         <Sidemenu />
-        <div className="flex-1">
+        <div className="flex-1 mt-10">
           <Tariffs/>
         </div>
       </div>

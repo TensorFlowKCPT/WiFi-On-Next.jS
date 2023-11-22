@@ -12,7 +12,7 @@ const Header = (): JSX.Element => {
       transition: { duration: 0.8 }, 
     };
   return (
-    <header className="relative w-full h-[84px] bg-neutralsilver">
+    <header  className="relative w-full h-[84px] bg-neutralsilver">
       {/* WiFi Icon */}
       <motion.div {...fadeInAnimation} className="absolute top-[10px] left-[16px]">
         <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
