@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "flowbite": "^2.2.0",
+    "flowbite-react": "^0.6.4",
     "framer-motion": "^10.16.5",
     "motion": "^10.16.4",
     "next": "14.0.2",
+    "rc-slider": "^10.4.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-slider": "^2.0.6"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -32,15 +32,6 @@ export const Tariffs = (): JSX.Element => {
 
   return (
     <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-24">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-semibold text-neutraldgrey">
-          Ознакомьтесь с тарифами
-        </h2>
-        <p className="text-xl text-variable-collection-dark-blue">
-          Тут вы найдете тот, который подходит именно вам!
-        </p>
-      </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {tariffs.map((tariff, index) => (
           <TariffCard key={index} {...tariff} onConnectClick={() => handleConnect(tariff.title)} />
