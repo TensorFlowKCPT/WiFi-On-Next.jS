@@ -1,13 +1,22 @@
 'use client';
-import React from "react";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { motion } from "framer-motion";
-
+import ModalComponent from './ModalComponent';
 export const Top = (): JSX.Element => {
   const fadeInAnimation = {
     initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 50 },
     transition: { duration: 0.3 }, 
+  };
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
   return (
     <div className="flex flex-col md:flex-row items-center justify-center px-4 py-8 bg-neutralsilver">
@@ -32,17 +41,20 @@ export const Top = (): JSX.Element => {
         />
 
         <motion.button
-          {...fadeInAnimation}
-          className="flex-grow w-full text-white text-center text-3xl font-semibold leading-6 whitespace-nowrap justify-center items-center shadow-sm bg-[#2a6f97] px-5 py-6 rounded-xl"
-          whileHover={{ scale: 1.04 }}
-          transition={{ type: "tap", stiffness: 300, damping: 10 }}
-        >
-          Оставить заявку
-        </motion.button>
+            {...fadeInAnimation}
+            onClick={openModal}
+            className="flex-grow w-full text-white text-center text-3xl font-semibold leading-6 whitespace-nowrap justify-center items-center shadow-sm bg-[#2a6f97] px-5 py-6 rounded-xl"
+            whileHover={{ scale: 1.04 }}
+            transition={{ type: "tap", stiffness: 300, damping: 10 }}
+          >
+            Оставить заявку
+          </motion.button>
+
+          {/* Modal */}
+          <ModalComponent isOpen={modalIsOpen} onRequestClose={closeModal} />
+        </div>
         </div>
       </div>
-      {/* Дополнительный контент для больших экранов, если необходимо */}
-    </div>
   );
 };
 
