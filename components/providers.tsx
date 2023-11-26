@@ -38,14 +38,17 @@ export default function App() {
       <p className="mb-4 text-xl text-center md:text-left text-variable-collection-blue-secondary">
         Мы подберем лучших провайдеров для вас!
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center md:justify-start">
-        <img className="w-[59px] h-[58px] object-cover mb-4" alt="Logo dom ru" src="logo-dom-ru-1.png" />
-        <img className="w-[59px] h-[57px] object-cover mb-4" alt="Img" src="df583655157572a113a4980bf91dac34-1.png" />
-        <img className="w-[80px] h-[75px] object-cover mb-4" alt="Xypwcfby" src="xyp80w6cfby-transformed-1.png" />
-        <img className="w-[69px] h-[71px] object-cover mb-4" alt="Ndydwuhc" src="nd66y0dwuhc-1.png" />
-        <img className="w-[102px] h-[94px] object-cover mb-4" alt="Element" src="4idqlebacza-1.png" />
-        <img className="w-[102px] h-[94px] object-cover mb-4" alt="Element" src="4idqlebacza-1.png" />
+      <div className="grid grid-cols-5 gap-x-20 justify-center md:justify-start">
+        <img className="w-[55px] h-[55px] object-cover mb-4" alt="Logo dom ru" src="/domru.png" />
+        <img className="w-[75px] h-[55px] object-cover mb-4" alt="Img" src="/megafon.png" />
+        <img className="w-[55px] h-[55px] object-cover mb-4" alt="Xypwcfby" src="/mts.png" />
+        <img className="w-[85px] h-[55px] object-cover mb-0" alt="Ndydwuhc" src="/rtk.png" />
+        <img className="w-[55px] h-[55px] object-cover mb-4" alt="Element" src="/beeline.png" />
       </div>
+
+
+
+
 
       {/* Медиа-запрос для мобильных устройств */}
       <style>
