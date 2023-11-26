@@ -105,9 +105,14 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
         style={iconStyleAdress}
       />
     </div>
-      <button 
-      className="text-gray-50 text-base font-semibold leading-4 whitespace-nowrap justify-center items-center bg-cyan-700 mt-10 mb-6 p-5 rounded-xl max-md:max-w-full">
-        Оставить заявку
+    <button
+        className="w-full mt-5 items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
+      >
+        <div
+          className="relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap"
+        >
+          Оставить заявку
+        </div>
       </button>
     </Modal>
 
