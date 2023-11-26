@@ -13,7 +13,7 @@ const reviews: React.FC = () => {
     return (
       <div>
         <Header />
-        <div className="flex flex-col items-center px-5 my-15">
+        <div className="flex flex-col items-center px-5 my-15 mt-8"> {/* Add mt-8 for top margin */}
           <div className="text-black text-4xl font-medium leading-10 whitespace-nowrap mt-15">
             Отзывы клиентов
           </div>

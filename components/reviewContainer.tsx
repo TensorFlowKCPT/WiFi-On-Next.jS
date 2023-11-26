@@ -83,10 +83,13 @@ export default function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         {/* Блок с отзывами */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {reviews.map((review, index) => (
-            <ReviewCard key={index} {...review} />
-        ))}
+          {reviews.map((review, index) => (
+            <div key={index} className="mb-8 md:mb-0 md:pr-8"> {/* Add margin-bottom for spacing and padding-right for right spacing on medium screens */}
+              <ReviewCard {...review} />
+            </div>
+          ))}
         </div>
+
 
         {/* Кнопки "Оставить отзыв" и "Все отзывы" */}
         <div  className="w-full flex justify-center items-center mt-8">

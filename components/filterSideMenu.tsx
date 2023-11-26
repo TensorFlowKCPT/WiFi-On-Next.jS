@@ -183,22 +183,22 @@ const handleSliderPriceChange = (value) => {
         </div>
         <div className="self-stretch flex items-stretch justify-between gap-5 mt-4">
         <div className="flex grow basis-[0%] flex-col items-stretch">
-            <div className="flex items-center">
-            <input
-                type="text"
-                disabled
-                value={rangePrice[0]}
-                className="text-black text-center text-xl font-light leading-6 bg-zinc-300 items-stretch px-4 py-2.5 rounded-xl max-md:pr-px mr-2.5"
-                style={{ width: '100px' }}
-            />
-            <input
-                type="text"
-                disabled
-                value={rangePrice[1]}
-                className="text-black text-center text-xl font-light leading-6 bg-zinc-300 items-center px-4 py-2.5 rounded-xl"
-                style={{ width: '100px' }}
-            />
-            </div>
+        <div className="flex items-center">
+          <input
+              type="text"
+              disabled
+              value={rangePrice[0]}
+              className="text-black text-center text-xl font-light leading-6 bg-white items-stretch px-4 py-2.5 rounded-xl max-md:pr-px mr-2.5"
+              style={{ width: '100px' }}
+          />
+          <input
+              type="text"
+              disabled
+              value={rangePrice[1]}
+              className="text-black text-center text-xl font-light leading-6 bg-white items-center px-4 py-2.5 rounded-xl"
+              style={{ width: '100px' }}
+          />
+      </div>
             <div className="flex shrink-0 h-[13px] flex-col mt-4 rounded-[50%]" />
         </div>
         </div>
@@ -219,19 +219,19 @@ const handleSliderPriceChange = (value) => {
         <div className="flex grow basis-[0%] flex-col items-stretch">
             <div className="flex items-center">
             <input
-                type="text"
-                disabled
-                value={range[0]}
-                className="text-black text-center text-xl font-light leading-6 bg-zinc-300 items-stretch px-4 py-2.5 rounded-xl max-md:pr-px mr-2.5"
-                style={{ width: '100px' }}
-            />
-            <input
-                type="text"
-                disabled
-                value={range[1]}
-                className="text-black text-center text-xl font-light leading-6 bg-zinc-300 items-center px-4 py-2.5 rounded-xl"
-                style={{ width: '100px' }}
-            />
+              type="text"
+              disabled
+              value={range[0]}
+              className="text-black text-center text-xl font-light leading-6 bg-zinc-300 items-stretch px-4 py-2.5 rounded-xl max-md:pr-px mr-2.5"
+              style={{ width: '100px', backgroundColor: 'white' }}
+          />
+          <input
+              type="text"
+              disabled
+              value={range[1]}
+              className="text-black text-center text-xl font-light leading-6 bg-zinc-300 items-center px-4 py-2.5 rounded-xl"
+              style={{ width: '100px', backgroundColor: 'white' }}
+          />
             </div>
             <div className="flex shrink-0 h-[13px] flex-col mt-4 rounded-[50%]" />
         </div>
