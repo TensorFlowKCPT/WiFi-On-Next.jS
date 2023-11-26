@@ -7,28 +7,28 @@ import { motion } from 'framer-motion';
 export const Tariffs = (): JSX.Element => {
   const tariffs = [
     {
-      title: "Тариф 1",
-      price: "$10",
-      imageUrl: "path/to/image1.jpg",
-      provider: "Провайдер 1",
+      title: "Дом.Ру",
+      price: "990p.",
+      imageUrl: "/domru.png",
+      provider: "Дом.ру",
     },
     {
-      title: "Тариф 2",
-      price: "$15",
-      imageUrl: "path/to/image2.jpg",
-      provider: "Провайдер 2",
+      title: "Тариф Билайн",
+      price: "1500p.",
+      imageUrl: "/beeline.png",
+      provider: "Билайн",
     },
     {
-      title: "Тариф 3",
-      price: "$15",
-      imageUrl: "path/to/image2.jpg",
-      provider: "Провайдер 2",
+      title: "Тариф Ростелеком",
+      price: "1250p.",
+      imageUrl: "/rtk.png",
+      provider: "Ростелеком",
     },
     {
-      title: "Тариф 4",
-      price: "$15",
-      imageUrl: "path/to/image2.jpg",
-      provider: "Провайдер 2",
+      title: "Тариф Мегафон",
+      price: "1990р.",
+      imageUrl: "/megafon.png",
+      provider: "Мегафон",
     },
     // Добавьте другие тарифы по аналогии
   ];
