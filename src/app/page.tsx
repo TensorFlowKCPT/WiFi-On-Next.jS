@@ -19,7 +19,7 @@ const App: React.FC = () => {
       <Top />
       <Providers />
       <Tariffs />
-      <div className="flex flex-col items-center px-5 mt-15">
+      <div className="flex flex-col items-center px-5 my-15 mt-8">
           <div className="text-black text-4xl font-medium leading-10 whitespace-nowrap">
             Отзывы клиентов
           </div>

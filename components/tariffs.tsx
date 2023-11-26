@@ -30,6 +30,18 @@ export const Tariffs = (): JSX.Element => {
       imageUrl: "/megafon.png",
       provider: "Мегафон",
     },
+    {
+      title: "Тариф Мегафон",
+      price: "1990р.",
+      imageUrl: "/megafon.png",
+      provider: "Мегафон",
+    },
+    {
+      title: "Тариф Билайн",
+      price: "1500p.",
+      imageUrl: "/beeline.png",
+      provider: "Билайн",
+    },
     // Добавьте другие тарифы по аналогии
   ];
   const fadeInAnimation = {
