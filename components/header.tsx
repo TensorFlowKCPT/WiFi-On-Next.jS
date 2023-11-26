@@ -1,8 +1,10 @@
 'use client';
-import React from "react";
+import React, { useState } from 'react';
 import styles from 'components/headerAnim.css';  
 import { motion } from 'framer-motion';
+import ModalComponent from './ModalComponent';
 import Link from 'next/link';
+import BurgerMenu from './BurgerMenu';
 
 const Header = (): JSX.Element => {
     const fadeInAnimation = {
@@ -10,6 +12,16 @@ const Header = (): JSX.Element => {
       animate: { opacity: 1, y: 0 },
       exit: { opacity: 0, y: 50 },
       transition: { duration: 0.8 }, 
+    };
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => {
+      setModalIsOpen(true);
+    };
+  
+    const closeModal = () => {
+      setModalIsOpen(false);
     };
   return (
     <header  className="relative w-full h-[84px] bg-neutralsilver">
@@ -45,14 +57,7 @@ const Header = (): JSX.Element => {
       </motion.p>
 
 
-        <button className="md:hidden flex items-center gap-2 px-2 py-1 absolute top-[17px] right-[16px]">
-        <motion.div {...fadeInAnimation} className="w-[16px] h-[12px]">
-            <img className="fixed w-full h-full top-0 left-0" alt="Vector" src="vector.svg" />
-        </motion.div>
-        <motion.div {...fadeInAnimation} className="font-semibold text-default-white text-[12px] text-center leading-[16px] whitespace-nowrap">
-            Меню
-        </motion.div>
-        </button>
+      <BurgerMenu></BurgerMenu>
 
 
           {/* Меню для ПК */}
@@ -98,6 +103,7 @@ const Header = (): JSX.Element => {
       <motion.button {...fadeInAnimation} 
       className="hidden md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] absolute top-[17px] right-[16px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
       whileHover={{ scale: 1.04 }}
+      onClick={openModal}
       transition={{ type: "tap", stiffness: 300, damping: 10 }}>
         <motion.div {...fadeInAnimation} className="relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap"
                   whileHover={{ scale: 1.04 }}
@@ -105,6 +111,7 @@ const Header = (): JSX.Element => {
           Оставить заявку
         </motion.div>
       </motion.button>
+      <ModalComponent isOpen={modalIsOpen} onRequestClose={closeModal} />
     </header>
   );
 };
