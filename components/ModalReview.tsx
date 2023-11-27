@@ -80,7 +80,7 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
       <div className="flex items-center">
       <input
         type="text"
-        className="text-black-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-8 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
+        className="text-black-400 text-xl font-medium leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-8 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
         placeholder="Ваше имя"
         />
 
@@ -88,10 +88,10 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
       </div>
       <div className="flex items-center">
       <textarea
-          className="text-black-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-6 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
+          className="text-black-400 text-xl font-medium leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-6 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
           style={{ 
               height: '150px',
-              fontFamily: 'Inter, sans-serif'  // Добавлено свойство font-family для использования шрифта Inter
+              fontFamily: 'Inter, sans-serif'
           }}
           placeholder="Ваш отзыв"
       ></textarea>
