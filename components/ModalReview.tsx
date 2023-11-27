@@ -87,12 +87,14 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
 
       </div>
       <div className="flex items-center">
-      <input
-            type="text"
-            className="text-black-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-6 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
-            style={{ height: '150px' }}
-            placeholder="Ваш отзыв"
-            />
+      <textarea
+          className="text-black-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-6 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
+          style={{ 
+              height: '150px',
+              fontFamily: 'Inter, sans-serif'  // Добавлено свойство font-family для использования шрифта Inter
+          }}
+          placeholder="Ваш отзыв"
+      ></textarea>
       </div>
     </Modal>
 
