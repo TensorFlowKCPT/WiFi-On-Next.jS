@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Link from 'next/link';
 import ReviewCard from 'components/reviewCard'; 
 import { useRef } from "react";
 import { useInView } from "framer-motion"
+import Modal from './ModalReview';
 import mobileStyles from 'components/ReviewSection.module.mobile.css';
 
 
@@ -76,6 +77,21 @@ export default function App() {
       },
     // Добавьте другие отзывы по аналогии
   ];
+  const [name, setName] = useState('');
+  const [review, setReview] = useState('');
+
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   return (
     <>
       <Section>
@@ -94,10 +110,12 @@ export default function App() {
         {/* Кнопки "Оставить отзыв" и "Все отзывы" */}
         <div  className="w-full flex justify-center items-center mt-8">
         <div  className="w-[740px] h-[47px] justify-center items-center gap-5 inline-flex">
-            <button className="w-[360px] h-[47px] relative bg-white rounded-[5px] border border-cyan-700 focus:outline-none">
+            <button className="w-[360px] h-[47px] relative bg-white rounded-[5px] border border-cyan-700 focus:outline-none"
+            onClick={openModal}>
             <div  className="left-[108px] top-[16px] absolute text-cyan-700 text-sm font-semibold font-inter uppercase leading-[15px] tracking-wide">
                 Оставить отзыв
             </div>
+            
             </button>
             <Link href="/Reviews">
               <button className="w-[360px] h-[47px] relative bg-cyan-700 rounded-[5px] border border-cyan-700 focus:outline-none">
@@ -107,8 +125,11 @@ export default function App() {
               </button>
             </Link>
         </div>
+        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} />
         </div>
+
     </div>
+    
     </Section>
     </>
   );

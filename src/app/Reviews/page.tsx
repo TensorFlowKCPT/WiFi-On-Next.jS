@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import Header from "components/header";
 import ReviewsList from "components/reviewContainer";
-import Footer from "components/footer"; 
+import Footer from "components/footer";
 export const metadata: Metadata = {
   title: 'Отзывы клиентов',
   description: 'Лучшие провайдеры',
@@ -13,7 +13,7 @@ const reviews: React.FC = () => {
     return (
       <div>
         <Header />
-        <div className="flex flex-col items-center px-5 my-15 mt-8"> {/* Add mt-8 for top margin */}
+        <div className="flex flex-col items-center px-5 my-15 mt-5"> 
           <div className="text-black text-4xl font-medium leading-10 whitespace-nowrap mt-15">
             Отзывы клиентов
           </div>
