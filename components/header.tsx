@@ -67,11 +67,6 @@ const Header = (): JSX.Element => {
             Тарифы
           </motion.div>
         </a>
-        <a href="/Providers" className={styles['nav-link']}>
-          <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
-            Провайдеры
-          </motion.div>
-        </a>
         <a href="/Reviews" className={styles['nav-link']}>
           <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
             Отзывы клиентов
