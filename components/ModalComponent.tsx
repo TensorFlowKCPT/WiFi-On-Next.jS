@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Modal from 'react-modal';
+import { motion } from 'framer-motion';
 
 interface ModalProps {
   isOpen: boolean;
@@ -15,6 +16,13 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
     setName(e.target.value);
   };
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const fadeInAnimation = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 50 },
+    transition: { duration: 0.8 }, 
+  };
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -86,13 +94,17 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
         <div className="text-zinc-800 text-2xl font-medium leading-8">
           Оставить заявку
         </div>
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/73cd99be-3fce-4a1e-b797-92201f5e4083?"
-          className="aspect-square object-contain object-center w-6 justify-center items-center overflow-hidden self-center shrink-0 max-w-full my-auto"
-          alt="Icon 1"
-          onClick={closeModal}
-        />
+        <motion.div
+          whileHover={{ scale: 1.1 }} // Change the scale factor as needed
+          whileTap={{ scale: 0.9 }} // Change the scale factor as needed
+        >
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d36ed647-49b7-480c-91a0-e8cc0adbf26d?apiKey=f97110349e09463883ec63bac45e4e6e&"
+            className="aspect-square object-contain object-center w-6 justify-center items-center overflow-hidden self-center shrink-0 max-w-full my-auto"
+            onClick={onRequestClose}
+          />
+        </motion.div>
       </div>
       <div style={{ position: 'relative', width: '440px' }}>
           <input
@@ -125,15 +137,17 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
           style={iconStyleAdress}
         />
       </div>
-    <button
+    <motion.button
         className="w-full mt-5 items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
+        whileHover={{ scale: 1.04 }}
+        transition={{ type: "tap", stiffness: 300, damping: 10 }}
       >
-        <div
-          className="relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap"
-        >
+        <motion.div className="relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "tap", stiffness: 300, damping: 10 }}>
           Оставить заявку
-        </div>
-      </button>
+        </motion.div>
+      </motion.button>
     </Modal>
 
   );

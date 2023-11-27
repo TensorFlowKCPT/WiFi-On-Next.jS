@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Modal from 'react-modal';
+import { motion } from 'framer-motion';
 
 interface ModalProps {
   isOpen: boolean;
@@ -64,16 +65,22 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
         <div className="text-zinc-800 text-2xl font-medium leading-8">
           Оставить отзыв
         </div>
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/d36ed647-49b7-480c-91a0-e8cc0adbf26d?apiKey=f97110349e09463883ec63bac45e4e6e&"
-          className="aspect-square object-contain object-center w-6 justify-center items-center overflow-hidden self-center shrink-0 max-w-full my-auto"
-        />
+        <motion.div
+          whileHover={{ scale: 1.1 }} // Change the scale factor as needed
+          whileTap={{ scale: 0.9 }} // Change the scale factor as needed
+        >
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/d36ed647-49b7-480c-91a0-e8cc0adbf26d?apiKey=f97110349e09463883ec63bac45e4e6e&"
+            className="aspect-square object-contain object-center w-6 justify-center items-center overflow-hidden self-center shrink-0 max-w-full my-auto"
+            onClick={onRequestClose}
+          />
+        </motion.div>
       </div>
       <div className="flex items-center">
       <input
         type="text"
-        className="text-zinc-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-8 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
+        className="text-black-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-8 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
         placeholder="Ваше имя"
         />
 
@@ -82,7 +89,7 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
       <div className="flex items-center">
       <input
             type="text"
-            className="text-zinc-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-6 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
+            className="text-black-400 text-xl font-semibold leading-4 border-[color:var(--color-light-light-3,#DFDFE6)] bg-gray-50 mt-6 px-4 py-5 rounded-xl border-2 border-solid max-md:max-w-full w-full"
             style={{ height: '150px' }}
             placeholder="Ваш отзыв"
             />

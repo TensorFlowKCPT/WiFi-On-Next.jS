@@ -1,12 +1,22 @@
-import React from "react";
+'use client';
+import React, { useState } from 'react';
 import { motion } from "framer-motion";
+import ModalComponent from './ModalComponent';
 
 const TariffCard = ({ title, price, imageUrl, provider, onConnectClick }) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
   };
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   return (
     <div className="relative border border-gray-300 p-4 rounded-md shadow-md">
       <img
@@ -24,7 +34,7 @@ const TariffCard = ({ title, price, imageUrl, provider, onConnectClick }) => {
         className="md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
         whileHover={{ scale: 1.04 }}
         transition={{ type: "tap", stiffness: 300, damping: 10 }}
-        onClick={onConnectClick}
+        onClick={openModal}
       >
         <motion.div
           {...fadeInAnimation}
@@ -35,6 +45,7 @@ const TariffCard = ({ title, price, imageUrl, provider, onConnectClick }) => {
           Оставить заявку
         </motion.div>
       </motion.button>
+      <ModalComponent isOpen={modalIsOpen} onRequestClose={closeModal} />
     </div>
   );
 };
