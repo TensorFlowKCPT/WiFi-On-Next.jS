@@ -12,21 +12,24 @@ const BurgerMenu: React.FC = () => {
 
   return (
     <div className={styles.burgerMenu}>
-      <button className="md:hidden flex items-center gap-2 px-2 py-1 absolute top-[17px] right-[16px]" onClick={toggleMenu}>
-        <motion.div {...fadeInAnimation} className="w-[16px] h-[12px]">
-          <img className="fixed w-full h-full top-0 left-0" alt="Vector" src="vector.svg" />
-        </motion.div>
-        <motion.div {...fadeInAnimation} className="font-semibold text-default-white text-[12px] text-center leading-[16px] whitespace-nowrap">
-          Меню
-        </motion.div>
+      <button 
+        className="md:hidden flex items-center gap-2 px-2 py-1 absolute top-[17px] right-[16px] bg-transparent border-none" 
+        onClick={toggleMenu}
+      >
+        <img 
+          className="w-[50px] h-[50px]" 
+          alt="Burger Icon" 
+          src="burger.svg" 
+        />
       </button>
+
 
       {isOpen && (
         <div className={styles.menu}>
           {/* Здесь вы можете добавить ссылки или другие элементы меню */}
-          <a href="#">Ссылка 1</a>
-          <a href="#">Ссылка 2</a>
-          <a href="#">Ссылка 3</a>
+          <a href="/Tariffs">Тарифы</a>
+          <a href="/Reviews">Отзывы</a>
+          <a href="/About">О нас</a>
         </div>
       )}
     </div>

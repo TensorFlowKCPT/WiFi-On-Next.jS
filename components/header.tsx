@@ -24,9 +24,8 @@ const Header = (): JSX.Element => {
       setModalIsOpen(false);
     };
   return (
-    <header  className="relative w-full h-[84px] bg-neutralsilver">
-      {/* WiFi Icon */}
-      <motion.div {...fadeInAnimation} className="absolute top-[10px] left-[16px]">
+    <header  className="flex-box w-full h-[84px] bg-neutralsilver">
+      <motion.div {...fadeInAnimation} className="absolute top-[20px] left-[16px]">
         <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_58_208)">
             <path d="M47.6089 10.4663H33.654C32.7004 10.4663 31.9097 9.67548 31.9097 8.7219C31.9097 7.76831 32.7004 6.97754 33.654 6.97754H47.6089C48.5625 6.97754 49.3532 7.76831 49.3532 8.7219C49.3532 9.67548 48.5625 10.4663 47.6089 10.4663Z" fill="#292D32"/>
@@ -60,7 +59,6 @@ const Header = (): JSX.Element => {
       <BurgerMenu></BurgerMenu>
 
 
-          {/* Меню для ПК */}
       <motion.div {...fadeInAnimation} className="hidden md:flex items-center justify-center gap-10 px-20 h-full">
         <a href="/Tariffs">
           <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap {styles['nav-link']}" >
