@@ -93,13 +93,18 @@ export default function App() {
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
+  const gridStyles = {
+    gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr));',
+  };
+
   return (
     <>
       <Section>
     <div className={`max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-24 ${mobileStyles.mobileReviewSection}`}>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         {/* Блок с отзывами */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div style={gridStyles} className="grid gap-8">
           {reviews.map((review, index) => (
             <div key={index} className="mb-8 md:mb-0 md:pr-8"> {/* Add margin-bottom for spacing and padding-right for right spacing on medium screens */}
               <ReviewCard {...review} />

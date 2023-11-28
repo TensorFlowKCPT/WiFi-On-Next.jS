@@ -18,7 +18,7 @@ const TariffCard = ({ title, price, imageUrl, provider, onConnectClick }) => {
     setModalIsOpen(false);
   };
   return (
-    <div className="relative border border-gray-300 p-4 rounded-md shadow-md">
+    <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center">
       <img
         style={{ width: '150px', height: '150px', objectFit: 'cover' }}
         alt={title}
