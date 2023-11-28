@@ -51,7 +51,7 @@ export const Tariffs = (): JSX.Element => {
   };
 
   const gridStyles = {
-    gridTemplateColumns: 'repeat(auto-fit, 300px);',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr));',
   };
 
   return (
