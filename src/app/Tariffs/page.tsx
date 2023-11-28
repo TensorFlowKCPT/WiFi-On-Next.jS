@@ -1,8 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+// @ts-ignore
 import Header from "components/header";
+// @ts-ignore
 import Sidemenu from "components/filterSideMenu";
+// @ts-ignore
 import Tariffs from "components/tariffs";
 import { motion } from 'framer-motion';
 

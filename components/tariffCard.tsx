@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import ModalComponent from './ModalComponent';
-
+// @ts-ignore
 const TariffCard = ({ title, price, imageUrl, provider, onConnectClick }) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },

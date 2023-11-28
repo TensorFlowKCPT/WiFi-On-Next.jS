@@ -1,5 +1,6 @@
 'use client';
 import React from "react";
+// @ts-ignore
 import TariffCard from "components/tariffCard"; // Путь к вашему компоненту карточки
 import { motion } from 'framer-motion';
 

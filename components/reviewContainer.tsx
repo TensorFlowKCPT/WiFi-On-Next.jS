@@ -1,14 +1,16 @@
 'use client';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Link from 'next/link';
+// @ts-ignore
 import ReviewCard from 'components/reviewCard'; 
 import { useRef } from "react";
 import { useInView } from "framer-motion"
 import Modal from './ModalReview';
+// @ts-ignore
 import mobileStyles from 'components/ReviewSection.module.mobile.css';
 
 
-
+// @ts-ignore
 function Section({ children }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
