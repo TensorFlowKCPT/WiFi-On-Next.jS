@@ -38,12 +38,12 @@ export default function App() {
       <p className="mb-4 text-xl text-center md:text-left text-variable-collection-blue-secondary">
         Мы подберем лучших провайдеров для вас!
       </p>
-      <div className="grid grid-cols-5 gap-x-20 justify-center md:justify-start">
-        <img className="w-[55px] h-[55px] object-cover mb-4" alt="Logo dom ru" src="/domru.png" />
-        <img className="w-[75px] h-[55px] object-cover mb-4" alt="Img" src="/megafon.png" />
-        <img className="w-[55px] h-[55px] object-cover mb-4" alt="Xypwcfby" src="/mts.png" />
-        <img className="w-[85px] h-[55px] object-cover mb-0" alt="Ndydwuhc" src="/rtk.png" />
-        <img className="w-[55px] h-[55px] object-cover mb-4" alt="Element" src="/beeline.png" />
+      <div className="grid grid-cols-5 gap-x-20 justify-items-center items-center">
+        <img className="w-[75px] h-[75px] object-cover mb-3" alt="Logo dom ru" src="/domru.png" />
+        <img className="w-[75px] h-[75px] object-cover mb-3" alt="Img" src="/megafon.png" />
+        <img className="w-[75px] h-[75px] object-cover mb-3" alt="Xypwcfby" src="/mts.png" />
+        <img className="w-[85px] h-[75px] object-cover mb-3" alt="Ndydwuhc" src="/rtk.png" />
+        <img className="w-[75px] h-[75px] object-cover mb-3" alt="Element" src="/beeline.png" />
       </div>
 
 
