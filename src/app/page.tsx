@@ -22,7 +22,7 @@ const App: React.FC = () => {
       <Providers />
       <Tariffs />
       <div className="flex flex-col items-center px-5 my-15 mt-8">
-        <div className="text-black text-4xl font-medium leading-10 whitespace-nowrap">
+        <div className="mb-8 text-3xl font-semibold text-center md:text-left md:text-6xl">
           Отзывы клиентов
         </div>
         <div className="self-stretch text-cyan-700 text-center text-base leading-6 w-full -mr-5 mt-6">

@@ -32,7 +32,7 @@ export default function App() {
     <>
       <Section>
       <div className="flex flex-col items-center px-4 py-8 md:px-16 lg:px-32">
-      <div className="mb-8 text-3xl font-semibold text-center md:text-left md:text-6xl text-variable-collection-dark-green-duplicate">
+      <div className="mb-8 text-3xl font-semibold text-center md:text-left md:text-6xl">
         Лучшие провайдеры
       </div>
       <p className="mb-4 text-xl text-center md:text-left text-variable-collection-blue-secondary">
