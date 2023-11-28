@@ -65,7 +65,7 @@ export const Tariffs = (): JSX.Element => {
     </motion.div>
   );
 };
-
+// @ts-ignore
 const handleConnect = (tariffTitle) => {
   // Обработка нажатия кнопки "Подключить" для конкретного тарифа
   console.log(`Подключение к тарифу: ${tariffTitle}`);

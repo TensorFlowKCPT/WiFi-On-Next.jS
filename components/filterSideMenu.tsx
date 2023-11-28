@@ -14,14 +14,15 @@ const SidebarMenu = () => {
   const [beelineChecked, setBeelineChecked] = useState(false);
 const [range, setRange] = useState([70, 2000]);
 const [rangePrice, setRangePrice] = useState([240, 1910]); 
-      
+      // @ts-ignore
 const handleSliderChange = (value) => {
           setRange(value);
         };
+        // @ts-ignore
 const handleSliderPriceChange = (value) => {
             setRangePrice(value);
           };
-
+// @ts-ignore
   const handleCheckboxChange = (checkboxName) => {
     switch (checkboxName) {
       case 'internet':
