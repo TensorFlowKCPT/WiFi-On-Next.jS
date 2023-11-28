@@ -3,7 +3,6 @@ import React from "react";
 import TariffCard from "components/tariffCard"; // Путь к вашему компоненту карточки
 import { motion } from 'framer-motion';
 
-
 export const Tariffs = (): JSX.Element => {
   const tariffs = [
     {
@@ -50,9 +49,14 @@ export const Tariffs = (): JSX.Element => {
     exit: { opacity: 0, y: 50 },
     transition: { duration: 0.8 }, 
   };
+
+  const gridStyles = {
+    gridTemplateColumns: 'repeat(auto-fit, 300px);',
+  };
+
   return (
     <motion.div {...fadeInAnimation} className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-24">
-      <motion.div {...fadeInAnimation} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <motion.div {...fadeInAnimation} style={gridStyles} className="grid gap-8">
         {tariffs.map((tariff, index) => (
           <TariffCard key={index} {...tariff} onConnectClick={() => handleConnect(tariff.title)} />
         ))}
