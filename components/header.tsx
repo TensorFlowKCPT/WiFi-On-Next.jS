@@ -75,6 +75,11 @@ const Header = (): JSX.Element => {
             О нас
           </motion.div>
         </a>
+        <a href="/Questions" className={styles['nav-link']}>
+          <motion.div {...fadeInAnimation} className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap">
+            Часто задаваемые вопросы
+          </motion.div>
+        </a>
         <motion.div {...fadeInAnimation} className="relative flex items-center gap-2">
           <a
             className="relative font-medium text-black text-[20px] whitespace-nowrap"
