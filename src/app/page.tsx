@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "components/header"; 
-import Footer from "components/footer"; 
+import Header from "components/header";
+import Footer from "components/footer";
 import Top from "components/Top";
 import Providers from "components/providers";
 import { AnimatePresence } from 'framer-motion';
@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 import Tariffs from "components/tariffs";
 import Link from 'next/link';
 import ReviewsList from "components/reviewContainer";
+import ContactUs from "../../components/ContactUs"; 
 
 export const metadata: Metadata = {
   title: 'WiFi-On',
@@ -32,6 +33,7 @@ const App: React.FC = () => {
       <div className="w-full">
         <ReviewsList />
       </div>
+      <ContactUs /> 
       <Footer/>
     </div>
   );
