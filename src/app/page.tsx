@@ -14,6 +14,7 @@ import Tariffs from "components/tariffs";
 import Link from 'next/link';
 // @ts-ignore
 import ReviewsList from "components/reviewContainer";
+import ContactUs from "../../components/ContactUs";
 
 export const metadata: Metadata = {
   title: 'WiFi-On',
@@ -38,6 +39,7 @@ const App: React.FC = () => {
       <div className="w-full">
         <ReviewsList />
       </div>
+      <ContactUs /> {/* Corrected component name */}
       <Footer/>
     </div>
   );
