@@ -8,12 +8,25 @@ import type { Metadata } from 'next';
 import Tariffs from "components/tariffs";
 import Link from 'next/link';
 import ReviewsList from "components/reviewContainer";
-import ContactUs from "../../components/ContactUs"; 
+import ContactUs from "../../components/ContactUs";
+import RatingChart from 'components/RatingChart'; 
 
 export const metadata: Metadata = {
   title: 'WiFi-On',
   description: 'Лучшие провайдеры',
 }
+const providers = [
+  { name: 'Provider A', rating: 8 },
+  { name: 'Provider B', rating: 9 },
+  { name: 'Provider C', rating: 7 },
+  { name: 'Provider A', rating: 8 },
+  { name: 'Provider B', rating: 9 },
+  { name: 'Provider C', rating: 7 },
+  { name: 'Provider A', rating: 8 },
+  { name: 'Provider B', rating: 9 },
+  { name: 'Provider C', rating: 7 },
+  // Добавьте своих провайдеров и их рейтинги
+];
 
 const App: React.FC = () => {
   return (
@@ -33,7 +46,9 @@ const App: React.FC = () => {
       <div className="w-full">
         <ReviewsList />
       </div>
-      <ContactUs /> 
+      <ContactUs />
+      <h1 className="text-2xl font-bold mb-4">График рейтинга провайдеров</h1>
+      <RatingChart providerData={providers} />
       <Footer/>
     </div>
   );
