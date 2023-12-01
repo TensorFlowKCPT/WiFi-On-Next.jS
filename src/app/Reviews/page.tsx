@@ -17,7 +17,7 @@ const reviews: React.FC = () => {
           <div className="text-black text-4xl font-medium leading-10 whitespace-nowrap mt-15">
             Отзывы клиентов
           </div>
-          <div className="self-stretch text-cyan-700 text-center text-base leading-6 w-full -mr-5 mt-6 mb-10">
+          <div className="self-stretch text-cyan-700 text-center text-base leading-6 w-full -mr-5 mt-6">
             Только честные отзывы о тарифах и провайдерах!
           </div>
         </div>
