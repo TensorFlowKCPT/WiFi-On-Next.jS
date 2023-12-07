@@ -47,11 +47,30 @@ export const Top = (): JSX.Element => {
   }
   fetch(url, options)
   .then(response => response.text())
-  .then(result => {
+  .then(async result => {
     const suggestions = JSON.parse(result).suggestions.map(suggestion=> suggestion.value);
     if(suggestions.length===1 && suggestions[0] === query){
-      // Если мы здесь, значит пользователь ввел свой адрес максимально точно
-      console.log("Мы здесь, долбоеб")
+      try {
+        const dataToSend = { adress: query };
+        const response = await fetch('/api/Function', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataToSend)
+        });
+
+        if (response.ok) {
+          // Обработка успешного ответа, если необходимо
+          console.log('Успешный ответ:', response);
+          window.location.href = response.url
+        } else {
+          console.error('Ошибка при отправке запроса:', response.statusText);
+        }
+      }catch (error) {
+        console.error('Ошибка при отправке запроса:', error.message);
+      }
+      
     }
     setSuggestions(suggestions);
   })
