@@ -42,18 +42,22 @@ export const Top = (): JSX.Element => {
         Accept: "application/json",
         Authorization: "Token " + token,
       },
-      body: JSON.stringify({query: query, count:5})
-  }
-  fetch(url, options)
-  .then(response => response.text())
-  .then(async result => {
-    const suggestions = JSON.parse(result).suggestions.map(suggestion => suggestion.value);
-    if(suggestions.length===1 && suggestions[0] === query){
-      window.location.href = "/Tariffs?address="+query
-    }
-    setSuggestions(suggestions);
-  })
-  .catch(error => console.log("error", error));
+      body: JSON.stringify({ query: query, count: 5 }),
+    };
+    fetch(url, options)
+      .then((response) => response.text())
+      .then(async (result) => {
+        const suggestions = JSON.parse(result)
+          .suggestions.suggestions.filter(
+            (suggestion) => suggestion.data.fias_level < 9
+          )
+          .map((suggestion) => suggestion.value);
+        if (suggestions.length === 1 && suggestions[0] === query) {
+          window.location.href = "/Tariffs?address=" + query;
+        }
+        setSuggestions(suggestions);
+      })
+      .catch((error) => console.log("error", error));
   };
 
   const [inputValue, setInputValue] = useState("");

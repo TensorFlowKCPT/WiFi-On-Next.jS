@@ -46,10 +46,10 @@ async function getTariffs(city, providers) {
   }
 }
 
-// Вызываем функцию в контексте асинхронной функции
+// // Вызываем функцию в контексте асинхронной функции
 // (async () => {
 //   try {
-//     const result = await getTariffs("Тюмень", ["Ростелеком", "МТС"]);
+//     const result = await getTariffs("Новосибирск", ["Ростелеком", "МТС"]);
 //     console.log(result);
 //   } catch (error) {
 //     console.error("Error in main code:", error);
