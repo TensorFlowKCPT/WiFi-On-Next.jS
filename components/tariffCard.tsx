@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import ModalComponent from './ModalComponent';
 
-const TariffCard = ({ title, price, imageUrl, provider, onConnectClick }) => {
+const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -21,13 +21,13 @@ const TariffCard = ({ title, price, imageUrl, provider, onConnectClick }) => {
     <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center">
       <img
         style={{ width: '150px', height: '150px', objectFit: 'cover' }}
-        alt={title}
-        src={imageUrl}
+        alt={Name}
+        src={ImageUrl}
       />
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600 mb-2">{provider}</p>
+      <h3 className="text-xl font-semibold mb-2">{Name}</h3>
+      <p className="text-gray-600 mb-2">{providerName}</p>
       <p className="text-lg font-bold text-variable-collection-dark-blue mb-2">
-        {price}
+        {Price}
       </p>
       <motion.button
         {...fadeInAnimation}

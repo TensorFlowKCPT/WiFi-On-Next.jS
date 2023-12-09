@@ -13,16 +13,9 @@ async function getTariffs(city, providers) {
 
   try {
     const idcity = await db("Cities").where("Name", city).select("id").first();
-
-    const idproviders = await Promise.all(
-      providers.map(async (element) => {
-        const providerId = await db("Providers")
-          .where("Name", element)
-          .select("id")
-          .first();
-        return providerId ? providerId.id : null;
-      })
-    );
+    var pros = providers.toString()
+    const providers = await db("Providers").select("Name");
+    console.log(providers)
 
     const tariffs = await Promise.all(
       idproviders.map(async (element) => {

@@ -47,15 +47,15 @@ export const Top = (): JSX.Element => {
     fetch(url, options)
       .then((response) => response.text())
       .then(async (result) => {
-        const suggestions = JSON.parse(result)
-          .suggestions.suggestions.filter(
+        console.log(JSON.parse(result))
+        const suggestions = JSON.parse(result).suggestions.filter(
             (suggestion) => suggestion.data.fias_level < 9
           )
-          .map((suggestion) => suggestion.value);
-        if (suggestions.length === 1 && suggestions[0] === query) {
+          .map((suggestion) => suggestion);
+        if (suggestions[0].value === query&&suggestions[0].data.fias_level==8) {
           window.location.href = "/Tariffs?address=" + query;
         }
-        setSuggestions(suggestions);
+        setSuggestions(suggestions.map((suggestion) => suggestion.value));
       })
       .catch((error) => console.log("error", error));
   };
