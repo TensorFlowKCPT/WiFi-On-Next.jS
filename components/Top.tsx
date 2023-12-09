@@ -44,6 +44,7 @@ export const Top = (): JSX.Element => {
         Accept: "application/json",
         Authorization: "Token " + token,
       },
+<<<<<<< HEAD
       body: JSON.stringify({ query: query, count: 5 }),
     };
     fetch(url, options)
@@ -57,6 +58,20 @@ export const Top = (): JSX.Element => {
         setSuggestions(suggestions);
       })
       .catch((error) => console.log("error", error));
+=======
+      body: JSON.stringify({query: query, count:5})
+  }
+  fetch(url, options)
+  .then(response => response.text())
+  .then(async result => {
+    const suggestions = JSON.parse(result).suggestions.map(suggestion=> suggestion.value);
+    if(suggestions.length===1 && suggestions[0] === query){
+      window.location.href = "/Tariffs?adress="+query
+    }
+    setSuggestions(suggestions);
+  })
+  .catch(error => console.log("error", error));
+>>>>>>> d816f7e297c5a145c49a180349feffd8e4642ebc
   };
 
   const [inputValue, setInputValue] = useState("");
