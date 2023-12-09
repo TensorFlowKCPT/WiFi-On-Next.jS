@@ -50,27 +50,7 @@ export const Top = (): JSX.Element => {
   .then(async result => {
     const suggestions = JSON.parse(result).suggestions.map(suggestion=> suggestion.value);
     if(suggestions.length===1 && suggestions[0] === query){
-      try {
-        const dataToSend = { adress: query };
-        const response = await fetch('/api/Function', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(dataToSend)
-        });
-
-        if (response.ok) {
-          // Обработка успешного ответа, если необходимо
-          console.log('Успешный ответ:', response);
-          window.location.href = response.url
-        } else {
-          console.error('Ошибка при отправке запроса:', response.statusText);
-        }
-      }catch (error) {
-        console.error('Ошибка при отправке запроса:', error.message);
-      }
-      
+      window.location.href = "/Tariffs?adress="+query
     }
     setSuggestions(suggestions);
   })
