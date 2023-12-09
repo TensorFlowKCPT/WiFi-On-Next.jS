@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ModalComponent from "./ModalComponent";
-import { useRouter } from "next/router";
-
 const buttonStyles = {
   base: "flex-grow w-full h-full items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border",
   text: "relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap",
@@ -44,34 +42,18 @@ export const Top = (): JSX.Element => {
         Accept: "application/json",
         Authorization: "Token " + token,
       },
-<<<<<<< HEAD
-      body: JSON.stringify({ query: query, count: 5 }),
-    };
-    fetch(url, options)
-      .then((response) => response.text())
-      .then((result) => {
-        const suggestions = JSON.parse(result)
-          .suggestions.filter((suggestion) => suggestion.data.fias_level < 9)
-          .map((suggestion) => suggestion.value);
-        if (suggestions.length === 1 && suggestions[0] === query) {
-        }
-        setSuggestions(suggestions);
-      })
-      .catch((error) => console.log("error", error));
-=======
       body: JSON.stringify({query: query, count:5})
   }
   fetch(url, options)
   .then(response => response.text())
   .then(async result => {
-    const suggestions = JSON.parse(result).suggestions.map(suggestion=> suggestion.value);
+    const suggestions = JSON.parse(result).suggestions.map(suggestion => suggestion.value);
     if(suggestions.length===1 && suggestions[0] === query){
-      window.location.href = "/Tariffs?adress="+query
+      window.location.href = "/Tariffs?address="+query
     }
     setSuggestions(suggestions);
   })
   .catch(error => console.log("error", error));
->>>>>>> d816f7e297c5a145c49a180349feffd8e4642ebc
   };
 
   const [inputValue, setInputValue] = useState("");

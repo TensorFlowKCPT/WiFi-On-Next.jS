@@ -2,29 +2,9 @@
 import React, { useState, useEffect } from "react";
 import TariffCard from "components/tariffCard"; // Путь к вашему компоненту карточки
 import { motion } from 'framer-motion';
-import { useRouter } from "next/router";
 
 
-
-export const Tariffs = (): JSX.Element => {
-  const [tariffs, setTariffs] = useState([]);
-  const router = useRouter();
-  const { address } = router.query;
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/getTariffs",);
-        const result = await response.json();
-        setTariffs(result);
-      } catch (error) {
-        console.error("Error fetching tariffs:", error);
-      }
-    };
-
-    fetchData();
-  }, []); // Empty dependency array means this effect runs once after the initial render
-
-   
+export const Tariffs = ({tariffs}): JSX.Element => {
   const fadeInAnimation = {
     initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },
