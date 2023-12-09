@@ -1,4 +1,3 @@
-
 export default async function handler(req, res) {
   var dict = [
     {
@@ -39,5 +38,5 @@ export default async function handler(req, res) {
     },
     // Добавьте другие тарифы по аналогии
   ];
-  return res.json(dict)
-  }
+  return res.json(dict);
+}

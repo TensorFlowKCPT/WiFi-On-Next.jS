@@ -15,6 +15,7 @@
     "flowbite": "^2.2.0",
     "flowbite-react": "^0.6.4",
     "framer-motion": "^10.16.5",
+    "knex": "^3.1.0",
     "motion": "^10.16.4",
     "next": "14.0.2",
     "rc-slider": "^10.4.0",
@@ -26,7 +27,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
     "react-slider": "^2.0.6",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "@types/node": "^20",
