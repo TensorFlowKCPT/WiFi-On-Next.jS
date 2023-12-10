@@ -112,9 +112,9 @@ export const Top = (): JSX.Element => {
             </span>
             <span className="block text-[#2c7da0]">провайдера</span>
             <span className="block text-[#2c7da0]">здесь</span>
-            <h1 className="block text-[#012a4a] text-5xl">
-              Подключите{' '}
-              <span style={{ color: '#2c7da0', fontWeight: 'bold' }}>
+            <div>
+              <span className="block text-[#012a4a] text-5xl" style={{ display: 'inline-block', marginRight: '10px' }}>Подключите</span>
+              <span style={{ color: '#2c7da0', fontWeight: 'bold', fontSize: '50px', display: 'inline-block' }}>
                 <Typewriter
                   words={['Интернет', 'Телевидение', 'Связь']}
                   loop={3}
@@ -125,7 +125,9 @@ export const Top = (): JSX.Element => {
                   delaySpeed={1500}
                 />
               </span>
-            </h1>
+            </div>
+
+
           </motion.p>
           <motion.p
             {...fadeInAnimation}
