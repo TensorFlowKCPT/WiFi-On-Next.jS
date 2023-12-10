@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion, Variants } from 'framer-motion';
 import ModalComponent from "./ModalComponent";
+import { Typewriter } from 'react-simple-typewriter';
 const buttonStyles = {
   base: "flex-grow w-full h-full items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border",
   text: "relative font-semibold text-default-white text-[14px] text-center leading-[20px] whitespace-nowrap",
@@ -16,6 +17,7 @@ export const Top = (): JSX.Element => {
     exit: { opacity: 0, y: 50 },
     transition: { duration: 0.3 },
   };
+
 
   const containerVariants: Variants = {
     hidden: { opacity: 1, scale: 0 },
@@ -110,6 +112,20 @@ export const Top = (): JSX.Element => {
             </span>
             <span className="block text-[#2c7da0]">провайдера</span>
             <span className="block text-[#2c7da0]">здесь</span>
+            <h1 className="block text-[#012a4a] text-5xl">
+              Подключите{' '}
+              <span style={{ color: '#2c7da0', fontWeight: 'bold' }}>
+                <Typewriter
+                  words={['Интернет', 'Телевидение', 'Связь']}
+                  loop={3}
+                  cursor
+                  cursorStyle='|'
+                  typeSpeed={100}
+                  deleteSpeed={100}
+                  delaySpeed={1500}
+                />
+              </span>
+            </h1>
           </motion.p>
           <motion.p
             {...fadeInAnimation}
