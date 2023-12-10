@@ -112,7 +112,6 @@ export const Top = (): JSX.Element => {
             </span>
             <span className="block text-[#2c7da0]">провайдера</span>
             <span className="block text-[#2c7da0]">здесь</span>
-            <div>
               <span className="block text-[#012a4a] text-5xl" style={{ display: 'inline-block', marginRight: '10px' }}>Подключите</span>
               <span style={{ color: '#2c7da0', fontWeight: 'bold', fontSize: '50px', display: 'inline-block' }}>
                 <Typewriter
@@ -125,7 +124,6 @@ export const Top = (): JSX.Element => {
                   delaySpeed={1500}
                 />
               </span>
-            </div>
 
 
           </motion.p>
