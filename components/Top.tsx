@@ -158,7 +158,6 @@ export const Top = (): JSX.Element => {
                     variants={itemVariants}
                     className="px-4 py-2 cursor-pointer hover:bg-blue-100"
                     onClick={() => handleSuggestionClick(suggestion)}
-                    whileHover={{ backgroundColor: '#e3f2fd' }}
                   >
                     {suggestion}
                   </motion.li>
