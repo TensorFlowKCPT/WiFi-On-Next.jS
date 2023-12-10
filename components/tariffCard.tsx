@@ -20,14 +20,14 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => 
   return (
     <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center">
       <img
-        style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+        style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
         alt={Name}
         src={ImageUrl}
       />
       <h3 className="text-xl font-semibold mb-2">{Name}</h3>
       <p className="text-gray-600 mb-2">{providerName}</p>
       <p className="text-lg font-bold text-variable-collection-dark-blue mb-2">
-        {Price}
+        {Price} ₽
       </p>
       <motion.button
         {...fadeInAnimation}

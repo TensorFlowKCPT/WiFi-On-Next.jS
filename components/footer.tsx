@@ -8,6 +8,7 @@ const Footer = () => {
         <a href="/Tariffs" className={styles['nav-link']}>Тариф</a>
         <a href="/Reviews" className={styles['nav-link']}>Отзывы клиентов</a>
         <a href="/About" className={styles['nav-link']}>О нас</a>
+        <a href="/Questions" className={styles['nav-link']}>Часто задаваемые вопросы</a>
       </div>
       <div className="max-w-7xl mx-auto mt-8 flex flex-col items-center">
         <div className="w-full h-px bg-gray-200" />

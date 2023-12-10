@@ -25,7 +25,6 @@ const providers = [
   { name: "Provider A", rating: 8 },
   { name: "Provider B", rating: 9 },
   { name: "Provider C", rating: 7 },
-  // Добавьте своих провайдеров и их рейтинги
 ];
 
 const App: React.FC = () => {

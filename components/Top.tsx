@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from 'framer-motion';
 import ModalComponent from "./ModalComponent";
 const buttonStyles = {
   base: "flex-grow w-full h-full items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border",
@@ -15,6 +15,26 @@ export const Top = (): JSX.Element => {
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 50 },
     transition: { duration: 0.3 },
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+  
+  const itemVariants: Variants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
   };
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -109,19 +129,26 @@ export const Top = (): JSX.Element => {
             placeholder="Введите адрес"
             className="flex-grow w-full h-12 md:h-[40px] px-4 py-2 rounded-[12px] border-0 bg-white mb-4 md:mb-0"
           />
-          {suggestions.length > 0 && (
-            <ul className="px-4 py-2 cursor-pointer transition-colors duration-300">
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-200"
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion}
-                </li>
-              ))}
-            </ul>
-          )}
+            {suggestions.length > 0 && (
+              <motion.ul
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
+                className="max-h-40 overflow-y-auto w-full px-4 py-2 mt-2 bg-white border rounded-md shadow-lg cursor-pointer transition-colors duration-300 list-none"
+              >
+                {suggestions.map((suggestion, index) => (
+                  <motion.li
+                    key={index}
+                    variants={itemVariants}
+                    className="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                    onClick={() => handleSuggestionClick(suggestion)}
+                    whileHover={{ backgroundColor: '#e3f2fd' }}
+                  >
+                    {suggestion}
+                  </motion.li>
+                ))}
+              </motion.ul>
+            )}
 
           <motion.button
             {...fadeInAnimation}

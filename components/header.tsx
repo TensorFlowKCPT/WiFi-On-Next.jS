@@ -25,7 +25,7 @@ const Header = (): JSX.Element => {
   };
   return (
     <header className="flex-box w-full h-[84px] bg-neutralsilver items-center justify-between">
-      <motion.div {...fadeInAnimation} className="absolute top-2 left-4">
+      <motion.div {...fadeInAnimation} className="absolute top-5 left-4">
         <svg
           width="55"
           height="55"
@@ -189,7 +189,7 @@ const Header = (): JSX.Element => {
       {/* Кнопка "Оставить заявку" для всех устройств */}
       <motion.button
         {...fadeInAnimation}
-        className="hidden md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] absolute top-[17px] right-[16px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
+        className="hidden md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] absolute top-[20px] right-[16px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
         whileHover={{ scale: 1.04 }}
         onClick={openModal}
         transition={{ type: "tap", stiffness: 300, damping: 10 }}
