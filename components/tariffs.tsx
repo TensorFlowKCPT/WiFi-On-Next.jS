@@ -29,7 +29,9 @@ export const Tariffs = ({ tariffs }): JSX.Element => {
         className="grid gap-8"
         id = "tariffs"
       >
-        {tariffs.map((tariff, index) => (
+        {tariffs.map((
+          // @ts-ignore
+          tariff, index) => (
           <TariffCard
             key={index}
             {...tariff}

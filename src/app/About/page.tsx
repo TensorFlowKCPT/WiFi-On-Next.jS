@@ -7,7 +7,7 @@ import Header from "components/header";
 // @ts-ignore
 import Footer from "components/footer";
 
-
+// @ts-ignore
 export const metadata: Metadata = {
   title: 'О нас',
   description: 'Лучшие провайдеры',

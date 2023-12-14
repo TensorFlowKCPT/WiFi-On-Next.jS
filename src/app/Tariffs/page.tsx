@@ -42,17 +42,24 @@ const tariffs: React.FC = () => {
       const fetchProviders = async () => {
         try {
           const uniqueProviders = new Set();
+          // @ts-ignore
           var providerIds = []
           tariffs.forEach((tariff) => {
-            if(!providerIds.includes(tariff.providerId)){
+            if
+            // @ts-ignore
+            (!providerIds.includes(tariff.providerId)){
 
             
             const providerInfo = {
+              // @ts-ignore
               providerId: tariff.providerId,
+              // @ts-ignore
               providerName: tariff.providerName,
+              // @ts-ignore
               imageUrl: tariff.ImageUrl,
             };
             uniqueProviders.add(providerInfo);
+            // @ts-ignore
             providerIds.push(tariff.providerId)
           }
           });

@@ -29,7 +29,9 @@ const SidebarMenu = ({ providers }) => {
               fontWeight: 'bold' 
             }}>Провайдеры</label>
 
-      {providers.map((provider) => (
+      {providers.map((
+        // @ts-ignore
+        provider) => (
    <div className="ml-8" key={provider.providerId}>
       <input
           type="checkbox"

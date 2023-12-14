@@ -48,8 +48,10 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => 
             Оставить заявку
           </motion.div>
         </motion.button>
+        
+        <TariffModal isOpen={modalIsOpen} onRequestClose={closeModal}
         // @ts-ignore
-        <TariffModal isOpen={modalIsOpen} onRequestClose={closeModal} tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName }} />
+         tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName }} />
       </div>
     );
   };
