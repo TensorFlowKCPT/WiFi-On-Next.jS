@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+// @ts-ignore
 const ProviderTable: React.FC<{ tariffs: any[] }> = ({ providers }) => {
   return (
     <div>

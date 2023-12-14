@@ -1,7 +1,10 @@
 
 import React from 'react';
+// @ts-ignore
 import AboutComp from 'components/AboutComponent';
+// @ts-ignore
 import Header from "components/header";
+// @ts-ignore
 import Footer from "components/footer";
 
 

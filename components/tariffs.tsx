@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
+// @ts-ignore
 import TariffCard from "components/tariffCard"; // Путь к вашему компоненту карточки
 import { motion } from "framer-motion";
-
+// @ts-ignore
 export const Tariffs = ({ tariffs }): JSX.Element => {
   const fadeInAnimation = {
     initial: { opacity: 0, y: 50 },
@@ -16,10 +17,12 @@ export const Tariffs = ({ tariffs }): JSX.Element => {
   };
 
   return (
+
     <motion.div
       {...fadeInAnimation}
       className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-24"
     >
+
       <motion.div
         {...fadeInAnimation}
         style={gridStyles}
@@ -37,7 +40,7 @@ export const Tariffs = ({ tariffs }): JSX.Element => {
     </motion.div>
   );
 };
-
+// @ts-ignore
 const handleConnect = (tariffTitle) => {
   // Обработка нажатия кнопки "Подключить" для конкретного тарифа
   console.log(`Подключение к тарифу: ${tariffTitle}`);

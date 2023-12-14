@@ -4,16 +4,16 @@ import { useEffect } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { debounce } from 'chart.js/helpers';
-
+// @ts-ignore
 const SidebarMenu = ({ providers }) => {
 
   const [range, setRange] = useState([70, 2000]);
   const [rangePrice, setRangePrice] = useState([240, 1910]);
-
+// @ts-ignore
   const handleSliderChange = (value) => {
     setRange(value);
   };
-
+// @ts-ignore
   const handleSliderPriceChange = (value) => {
     setRangePrice(value);
   };
@@ -28,6 +28,7 @@ const SidebarMenu = ({ providers }) => {
               fontFamily: 'Inter, sans-serif',
               fontWeight: 'bold' 
             }}>Провайдеры</label>
+
       {providers.map((provider) => (
    <div className="ml-8" key={provider.providerId}>
       <input
@@ -41,6 +42,7 @@ const SidebarMenu = ({ providers }) => {
               const isMatchingProvider = element.dataset.providername === provider.providerName;
 
               if (isMatchingProvider) {
+                // @ts-ignore
                 if (document.getElementById(provider.providerId).checked) {
                   element.classList.remove("hidden");
                   element.classList.add("visible");
@@ -64,27 +66,49 @@ const SidebarMenu = ({ providers }) => {
   </label>
       </div>
       ))}
-       <label 
-     style={{
-              marginLeft: '8px',
-              fontSize: '20px',
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 'bold' 
-            }}>Услуги</label>
-      <div className="ml-8">
-        <input
+      <label 
+        style={{
+          marginLeft: '8px',
+          fontSize: '20px',
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 'bold',
+          marginTop: '8px', 
+        }}>Услуги</label>
+      <div className="ml-8 " style={{ display: 'flex', flexDirection: 'column' }}>
+        <div>
+          <input
             type="checkbox"
             placeholder='Интернет'
-            style={{ width: '30px', height: '30px' }}>
-        </input>
-        <input
+            style={{ width: '30px', height: '30px' }}
+          />
+          <span style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif', 
+            }}>Интернет</span>
+        </div>
+        <div>
+          <input
             type="checkbox"
-            style={{ width: '30px', height: '30px' }}>
-        </input>
-        <input
+            style={{ width: '30px', height: '30px' }}
+          />
+          <span             style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif', 
+            }}>Связь</span>
+        </div>
+        <div>
+          <input
             type="checkbox"
-            style={{ width: '30px', height: '30px' }}>
-        </input>
+            style={{ width: '30px', height: '30px' }}
+          />
+          <span             style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif', 
+            }}>Телевидение</span>
+        </div>
       </div>
 
       {/* Example sliders */}

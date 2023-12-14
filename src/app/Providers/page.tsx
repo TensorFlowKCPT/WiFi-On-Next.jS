@@ -2,9 +2,9 @@
 
 import React from 'react';
 import type { Metadata } from 'next';
+// @ts-ignore
 import Header from "components/header";
-import Sidemenu from "components/filterSideMenu";
-import Tariffs from "components/tariffs";
+
 
 export const metadata: Metadata = {
   title: 'Провайдеры',

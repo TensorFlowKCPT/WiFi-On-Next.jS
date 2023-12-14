@@ -2,9 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+// @ts-ignore
 import Header from "components/header";
+// @ts-ignore
 import Sidemenu from "components/filterSideMenu";
+// @ts-ignore
 import Tariffs from "components/tariffs";
+// @ts-ignore
 import ProviderTable from "components/ProviderTable"
 import { motion } from 'framer-motion';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'

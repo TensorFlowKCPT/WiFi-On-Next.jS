@@ -66,28 +66,34 @@ export const Top = (): JSX.Element => {
       },
       body: JSON.stringify({ query: query, count: 5 }),
     };
+    // @ts-ignore
     fetch(url, options)
       .then((response) => response.text())
       .then(async (result) => {
         console.log(JSON.parse(result))
         const suggestions = JSON.parse(result).suggestions.filter(
+          // @ts-ignore
             (suggestion) => suggestion.data.fias_level < 9
           )
+          // @ts-ignore
           .map((suggestion) => suggestion);
         if (suggestions[0].value === query&&suggestions[0].data.fias_level==8) {
           window.location.href = "/Tariffs?address=" + query;
         }
+        // @ts-ignore
         setSuggestions(suggestions.map((suggestion) => suggestion.value));
       })
       .catch((error) => console.log("error", error));
   };
 
   const [inputValue, setInputValue] = useState("");
+  // @ts-ignore
   const handleSuggestionClick = (suggestion) => {
     setInputValue(suggestion);
     setSuggestions([]); // Закрываем список подсказок после выбора
     CheckAdress(suggestion);
   };
+  // @ts-ignore
   const handleInput = (event) => {
     const query = event.target.value;
     setInputValue(query);

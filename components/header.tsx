@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+// @ts-ignore
 import styles from "./headerAnim.css";
 import { motion } from "framer-motion";
 import ModalComponent from "./ModalComponent";

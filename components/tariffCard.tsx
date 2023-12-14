@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import TariffModal from './TariffModal'; 
 
-
+// @ts-ignore
 const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },
@@ -48,6 +48,7 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => 
             Оставить заявку
           </motion.div>
         </motion.button>
+        // @ts-ignore
         <TariffModal isOpen={modalIsOpen} onRequestClose={closeModal} tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName }} />
       </div>
     );

@@ -90,7 +90,7 @@ const ModalComponent: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
         },
       }}
     >
-        <div className="justify-between items-stretch flex gap-5 mt-6 max-md:max-w-full max-md:flex-wrap">
+      <div className="justify-between items-stretch flex gap-5 mt-6 max-md:max-w-full max-md:flex-wrap">
         <div className="text-zinc-800 text-2xl font-medium leading-8">
           Оставить заявку
         </div>

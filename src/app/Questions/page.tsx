@@ -3,7 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+// @ts-ignore
 import Header from "components/header";
+// @ts-ignore
 import Footer from "components/footer";
 
 

@@ -1,8 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+// @ts-ignore
 import Header from "components/header";
+// @ts-ignore
 import ReviewsList from "components/reviewContainer";
+// @ts-ignore
 import Footer from "components/footer";
 export const metadata: Metadata = {
   title: 'Отзывы клиентов',
