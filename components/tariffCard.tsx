@@ -21,7 +21,7 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => 
   const formattedName = Name.replace(/[-_]/g, ''); 
 
   return (
-      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center hidden" data-providerName={providerName}>
+      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center hidden" data-providerName={providerName} data-price={Price}>
         <img
           style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
           alt={formattedName}

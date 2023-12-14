@@ -27,10 +27,10 @@ const SidebarMenu = ({ providers }) => {
       type="checkbox"
       id={provider.providerId}
       onChange={() => {
-        const providerElements = document.querySelectorAll(".providername");
+        const providerElements = document.getElementById("tariffs")?.querySelectorAll("div");
 
-        providerElements.forEach((element) => {
-          const isMatchingProvider = element.dataset.providerId === provider.providerId;
+        providerElements?.forEach((element) => {
+          const isMatchingProvider = element.dataset.providername === provider.providerName;
 
           if (isMatchingProvider) {
             if (document.getElementById(provider.providerId).checked) {

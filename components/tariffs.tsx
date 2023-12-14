@@ -24,6 +24,7 @@ export const Tariffs = ({ tariffs }): JSX.Element => {
         {...fadeInAnimation}
         style={gridStyles}
         className="grid gap-8"
+        id = "tariffs"
       >
         {tariffs.map((tariff, index) => (
           <TariffCard
