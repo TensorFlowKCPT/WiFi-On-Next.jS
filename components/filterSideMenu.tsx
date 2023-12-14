@@ -19,61 +19,124 @@ const SidebarMenu = ({ providers }) => {
   };
 
   return (
-    <div>
-      {/* Render checkboxes based on the providers array */}
+<div className='bg-neutralsilver floating p-4 mx-auto'>
+    <aside>
+     <label 
+     style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 'bold' 
+            }}>Провайдеры</label>
       {providers.map((provider) => (
-  <div key={provider.providerId}>
-    <input
-      type="checkbox"
-      id={provider.providerId}
-      onChange={() => {
-        const providerElements = document.getElementById("tariffs")?.querySelectorAll("div");
+   <div className="ml-8" key={provider.providerId}>
+      <input
+          type="checkbox"
+          id={provider.providerId}
+          style={{ width: '30px', height: '30px' }} // Adjust the width and height as needed
+          onChange={() => {
+            const providerElements = document.getElementById("tariffs")?.querySelectorAll("div");
 
-        providerElements?.forEach((element) => {
-          const isMatchingProvider = element.dataset.providername === provider.providerName;
+            providerElements?.forEach((element) => {
+              const isMatchingProvider = element.dataset.providername === provider.providerName;
 
-          if (isMatchingProvider) {
-            if (document.getElementById(provider.providerId).checked) {
-              element.classList.remove("hidden");
-              element.classList.add("visible");
-            } else {
-              element.classList.remove("visible");
-              element.classList.add("hidden");
-            }
-          }
-        });
-      }}
-    />
-    <label htmlFor={provider.providerId}>{provider.providerName}</label>
-  </div>
-))}
+              if (isMatchingProvider) {
+                if (document.getElementById(provider.providerId).checked) {
+                  element.classList.remove("hidden");
+                  element.classList.add("visible");
+                } else {
+                  element.classList.remove("visible");
+                  element.classList.add("hidden");
+                }
+              }
+            });
+          }}
+        />
+          <label
+          htmlFor={provider.providerId}
+            style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif', 
+            }}
+          >
+    {provider.providerName}
+  </label>
+      </div>
+      ))}
 
 
       {/* Example sliders */}
       <div>
-              <p>Range Slider</p>
-              <input
-                id="default-range"
-                type="range"
-                className="w-200 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                min={100}
-                max={2100}
-                onChange={(e) => handleSliderChange(Number(e.target.value))}
-              />
-            </div>
+        <div>
+          <p  style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 'bold' 
+            }}>Cтоимость тарифа</p>
+          <input
+            id="default-range-from"
+            type="number"
+            value={range[0]}
+            
+            onChange={(e) => handleSliderChange([Number(e.target.value), range[1]])}
+            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
+          />
+          <input
+            id="default-range-to"
+            type="number"
+            value={range[1]}
+            disabled
+            onChange={(e) => handleSliderChange([range[0], Number(e.target.value)])}
+            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}/>
+          <input
+            id="default-range"
+            type="range"
+            className="w-240 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+            min={100}
+            max={2100}
+            value={range[0]}
+            onChange={(e) => handleSliderChange([Number(e.target.value), range[1]])}
+          />
+        </div>
 
-            <div>
-              <p>Price Range Slider</p>
-              <input
-                id="default-range-price"
-                type="range"
-                className="w-200 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                min={100}
-                max={2100}
-                onChange={(e) => handleSliderPriceChange(Number(e.target.value))}
-              />
-            </div>
-          </div>
+        <div>
+          <p  style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 'bold' 
+            }}>Скорость интернета</p>
+          <input
+            id="default-range-price-from"
+            type="number"
+            value={rangePrice[0]}
+            onChange={(e) => handleSliderPriceChange([Number(e.target.value), rangePrice[1]])}
+            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
+          />
+          <input
+            id="default-range-price-to"
+            type="number"
+            value={rangePrice[1]}
+            disabled
+            onChange={(e) => handleSliderPriceChange([rangePrice[0], Number(e.target.value)])}
+            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
+          />
+          <input
+            id="default-range-price"
+            type="range"
+            className="w-240 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+            min={100}
+            max={2100}
+            value={rangePrice[0]}
+            onChange={(e) => handleSliderPriceChange([Number(e.target.value), rangePrice[1]])}
+          />
+        </div>
+      </div>
+      </aside>
+    </div>
+
   );
 };
 

@@ -28,7 +28,7 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => 
           src={ImageUrl}
         />
         <h3 className="text-xl h-[50px] font-semibold mb-5">{formattedName}</h3>
-        <p className="text-gray-600 text-lg mb-2">{providerName}</p>
+        <p className="text-gray-600 text-lg mt-10 mb-2">{providerName}</p>
         <p className="text-lg font-bold text-variable-collection-dark-blue mb-2">
           {Price} ₽
         </p>

@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import Tariffs from "components/tariffs";
 import Link from "next/link";
 import ReviewsList from "components/reviewContainer";
-import ContactUs from "../../components/ContactUs";
+import ContactUs from "components/ContactUs";
 import RatingChart from "components/RatingChart";
 
 export const metadata: Metadata = {
