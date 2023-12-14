@@ -1,6 +1,8 @@
 
 import React from 'react';
 import AboutComp from 'components/AboutComponent';
+import Header from "components/header";
+import Footer from "components/footer";
 
 
 export const metadata: Metadata = {
@@ -10,7 +12,11 @@ export const metadata: Metadata = {
 
 const about: React.FC = () => {
     return (
-         <AboutComp/>
+    <div>
+      <Header/>
+       <AboutComp/>
+       <Footer/>
+     </div>
   );
 
 };

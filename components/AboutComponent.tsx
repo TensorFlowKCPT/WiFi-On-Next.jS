@@ -3,8 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import Header from "components/header";
-import Footer from "components/footer";
+
 
 
 
@@ -18,7 +17,6 @@ const about: React.FC = () => {
     };
     return (
           <motion.div {...fadeInAnimation}>
-            <Header />
             <motion.div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8" {...fadeInAnimation}>
               <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8" {...fadeInAnimation}>
                 {/* Content on the left */}
@@ -104,7 +102,6 @@ const about: React.FC = () => {
           </motion.div>
         </motion.div>
       </motion.div>
-      <Footer />
     </motion.div>
   );
 

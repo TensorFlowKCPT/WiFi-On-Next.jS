@@ -64,7 +64,28 @@ const SidebarMenu = ({ providers }) => {
   </label>
       </div>
       ))}
-
+       <label 
+     style={{
+              marginLeft: '8px',
+              fontSize: '20px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 'bold' 
+            }}>Услуги</label>
+      <div className="ml-8">
+        <input
+            type="checkbox"
+            placeholder='Интернет'
+            style={{ width: '30px', height: '30px' }}>
+        </input>
+        <input
+            type="checkbox"
+            style={{ width: '30px', height: '30px' }}>
+        </input>
+        <input
+            type="checkbox"
+            style={{ width: '30px', height: '30px' }}>
+        </input>
+      </div>
 
       {/* Example sliders */}
       <div>
