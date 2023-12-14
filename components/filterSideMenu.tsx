@@ -51,17 +51,29 @@ const SidebarMenu = ({ providers }) => {
 
       {/* Example sliders */}
       <div>
-        <p>Range Slider</p>
-        <input type="range" value={range[0]} min={0} max={100} onChange={(e) => handleSliderChange([Number(e.target.value), range[1]])} />
-        <input type="range" value={range[1]} min={0} max={100} onChange={(e) => handleSliderChange([range[0], Number(e.target.value)])} />
-      </div>
+              <p>Range Slider</p>
+              <input
+                id="default-range"
+                type="range"
+                className="w-200 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                min={100}
+                max={2100}
+                onChange={(e) => handleSliderChange(Number(e.target.value))}
+              />
+            </div>
 
-      <div>
-        <p>Price Range Slider</p>
-        <input type="range" value={rangePrice[0]} min={0} max={100} onChange={(e) => handleSliderPriceChange([Number(e.target.value), rangePrice[1]])} />
-        <input type="range" value={rangePrice[1]} min={0} max={100} onChange={(e) => handleSliderPriceChange([rangePrice[0], Number(e.target.value)])} />
-      </div>
-    </div>
+            <div>
+              <p>Price Range Slider</p>
+              <input
+                id="default-range-price"
+                type="range"
+                className="w-200 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                min={100}
+                max={2100}
+                onChange={(e) => handleSliderPriceChange(Number(e.target.value))}
+              />
+            </div>
+          </div>
   );
 };
 
