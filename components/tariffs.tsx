@@ -13,7 +13,7 @@ export const Tariffs = ({ tariffs }): JSX.Element => {
   };
 
   const gridStyles = {
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr));",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
   };
 
   return (
@@ -25,7 +25,7 @@ export const Tariffs = ({ tariffs }): JSX.Element => {
 
       <motion.div
         {...fadeInAnimation}
-        style={gridStyles}
+        style={{...gridStyles}}
         className="grid gap-8"
         id = "tariffs"
       >
