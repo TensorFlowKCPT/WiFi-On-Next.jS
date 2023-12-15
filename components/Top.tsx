@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import ModalComponent from "./ModalComponent";
+import Cords from "./Cords";
 import { Typewriter } from 'react-simple-typewriter';
 const buttonStyles = {
   base: "flex-grow w-full h-full items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border",
@@ -9,6 +10,7 @@ const buttonStyles = {
   hover: { scale: 1.04 },
   transition: { type: "tap", stiffness: 300, damping: 10 },
 };
+
 
 export const Top = (): JSX.Element => {
   const fadeInAnimation = {
@@ -117,6 +119,7 @@ export const Top = (): JSX.Element => {
               Найди своего идеального
             </span>
             <span className="block text-[#2c7da0]">провайдера</span>
+            <Cords/>
             <span className="block text-[#2c7da0]">здесь</span>
               <span className="block text-[#012a4a] text-5xl" style={{ display: 'inline-block', marginRight: '10px' }}>Подключите</span>
               <span style={{ color: '#2c7da0', fontWeight: 'bold', fontSize: '50px', display: 'inline-block' }}>

@@ -70,6 +70,8 @@ interface TariffModalProps {
         <p>{tariffInfo.providerName}</p>
         <p>Цена тарифа</p>
         <p>{tariffInfo.Price} ₽</p>
+        <p>Информация</p>
+        <p>{tariffInfo.Description}</p>
       <div className="flex items-center">
         <input
           type="text"

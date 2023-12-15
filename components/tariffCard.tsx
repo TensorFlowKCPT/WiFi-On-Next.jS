@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import TariffModal from './TariffModal'; 
 
 // @ts-ignore
-const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => {
+const TariffCard = ({ Name, Price, ImageUrl, providerName, Description, onConnectClick }) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -51,7 +51,7 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, onConnectClick }) => 
         
         <TariffModal isOpen={modalIsOpen} onRequestClose={closeModal}
         // @ts-ignore
-         tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName }} />
+         tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName, Description }} />
       </div>
     );
   };

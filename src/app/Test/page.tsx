@@ -6,6 +6,8 @@ import type { Metadata } from 'next';
 // @ts-ignore
 import Header from "components/header";
 // @ts-ignore
+import Cords from "components/Cords";
+// @ts-ignore
 import Footer from "components/footer";
 
 
@@ -22,6 +24,7 @@ const about: React.FC = () => {
       <motion.div>
             <Header />
             <iframe src="https://2ip.ru/speed-widget/" height="550px" width="550px"></iframe>
+            <Cords />
       <Footer />
       </motion.div>
   );
