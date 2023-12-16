@@ -26,11 +26,16 @@ const SidebarMenu = ({ providers }) => {
     // Перебираем все потомки элемента с id "tariffs"
     tariffsContainer?.childNodes.forEach(element => {
       if (element.nodeType === 1) {
+        // @ts-ignore
         var providerName = element.dataset.providername;
+        // @ts-ignore
         var internetspeed = parseInt(element.dataset.internetspeed);
         console.log(activeProviders)
+        // @ts-ignore
         element.classList.add("hidden");
+        // @ts-ignore
         if (internetspeed>=rangeSpeed[0]&&activeProviders.includes(providerName)){
+          // @ts-ignore
           element.classList.remove("hidden");
         }
       }
