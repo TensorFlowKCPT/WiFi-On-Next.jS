@@ -6,8 +6,7 @@ export default async function handler(req, res) {
   let houseId;
   const providers = [];
   let cityName;
-  var dict 
-  if(address!=cityName){
+
   try {
     const response = await fetch(
       `https://catalog.api.2gis.com/3.0/items/geocode?q=${address}&key=${key}`
@@ -34,60 +33,24 @@ export default async function handler(req, res) {
     res.status(500).json({ error: "Internal Server Error" });
     return;
   }
-
-  dict = await getTariffs(cityName, providers);
+  const dict = await getTariffs(cityName, providers);
   if(dict.length==0){
     //Здесь должна быть ошибка мол нету
   }
+  return res.json(dict);
 }
-else{
-  dict = await getTariffsByCity(cityName);
-}
-return res.json(dict);
-}
-const config = {
-  client: "sqlite3",
-  connection: {
-    filename: "pages/api/sqlite.sqlite3",
-  },
-  useNullAsDefault: true,
-};
-const db = knex(config);
-async function getTariffsByCity(city){
-  try {
-    const cityId = await db("Cities").where("Name", city).select("id").first();
 
-    const allProviders = await db("Providers").select("id", "Name");
-
-    const providerIds = allProviders.map(provider => provider.id);
-
-    const tariffs = await Promise.all(
-      providerIds.map(async (id) => {
-        const tariff =  await db("Tariffs")
-        .select(
-          "Tariffs.*",
-          "Providers.id as providerId",
-          "Providers.Name as providerName",
-          "Providers.ImageUrl as ImageUrl"
-        )
-        .join("Providers", "Tariffs.idProvider", "Providers.id")
-        .where({
-          "Tariffs.idCity": cityId.id,
-          "Tariffs.idProvider": id,
-        });
-        return tariff;
-      })
-    );
-    const flattenedTariffs = tariffs.flat();
-    console.log(flattenedTariffs)
-    return flattenedTariffs;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  } finally {
-    await db.destroy();
-  }
-}
 async function getTariffs(city, providerNames) {
+  const config = {
+    client: "sqlite3",
+    connection: {
+      filename: "pages/api/sqlite.sqlite3",
+    },
+    useNullAsDefault: true,
+  };
+
+  const db = knex(config);
+
   try {
     const cityId = await db("Cities").where("Name", city).select("id").first();
 
