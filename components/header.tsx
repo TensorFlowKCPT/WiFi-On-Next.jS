@@ -124,6 +124,7 @@ const Header = (): JSX.Element => {
           <motion.div
             {...fadeInAnimation}
             className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap {styles['nav-link']}"
+            id="TariffsButton"
           >
             Тарифы
           </motion.div>

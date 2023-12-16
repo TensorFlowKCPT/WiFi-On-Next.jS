@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import TariffModal from './TariffModal'; 
 
 // @ts-ignore
-const TariffCard = ({ Name, Price, ImageUrl, providerName, Description, onConnectClick }) => {
+const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Description, onConnectClick }) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -19,9 +19,17 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, Description, onConnec
     setModalIsOpen(false);
   };
   const formattedName = Name.replace(/[-_]/g, ''); 
-
+  const Options = JSON.parse(OptionsJSON)
+  var InternetSpeed
+  try{
+    InternetSpeed = Options.Values.InternetSpeed[0]
+  }
+  catch{
+    InternetSpeed = null
+  }
+  
   return (
-      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center hidden" data-providerName={providerName} data-price={Price}>
+      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center hidden" data-internetspeed={InternetSpeed} data-providerName={providerName} data-price={Price}>
         <img
           style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
           alt={formattedName}

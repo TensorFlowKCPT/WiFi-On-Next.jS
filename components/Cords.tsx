@@ -14,11 +14,13 @@ const getUserCity = async () => {
               `https://catalog.api.2gis.com/3.0/items/geocode?lat=${position.coords.latitude}&lon=${position.coords.longitude}&fields=items.point&key=${key}`
             );
   
-            const city = response.data.result?.items[3]?.full_name;
-  
+            const city = response.data.result?.items[3]?.full_name.split(",")[0]
             if (city && city.trim() !== '') {
               setUserCity(city);
-            } else {
+            } else if(city == "Unknown"){
+              setUserCity('');
+            }
+            else {
               setUserCity('');
             }
           },
@@ -38,9 +40,15 @@ const getUserCity = async () => {
   useEffect(() => {
     getUserCity();
   }, []);
+  if(userCity == "" || userCity == "Unknown"){
+    return <span className="block text-[#012a4a]">в вашем городе</span>
+  }
+  else{
     return (
-    <span className="block text-[#012a4a]">в городе {userCity}</span>
-  );
+      <span className="block text-[#012a4a]">в городе {userCity}</span>
+    );
+  }
+    
 };
 
 export default ContactUs;
