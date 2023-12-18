@@ -4,20 +4,44 @@ import { useEffect } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { debounce } from 'chart.js/helpers';
+
 // @ts-ignore
 const SidebarMenu = ({ providers }) => {
 
   const [range, setRange] = useState([70, 2000]);
-  const [rangePrice, setRangePrice] = useState([240, 1910]);
+  const [rangeSpeed, setRangeSpeed] = useState([240, 1910]);
+  const [activeProviders, setActiveProviders] = useState([]);
+
 // @ts-ignore
   const handleSliderChange = (value) => {
     setRange(value);
   };
 // @ts-ignore
   const handleSliderPriceChange = (value) => {
-    setRangePrice(value);
+    setRangeSpeed(value);
   };
-
+  function CheckTariffs(){
+    var tariffsContainer = document.getElementById("tariffs");
+    
+    // Перебираем все потомки элемента с id "tariffs"
+    tariffsContainer?.childNodes.forEach(element => {
+      if (element.nodeType === 1) {
+        // @ts-ignore
+        var providerName = element.dataset.providername;
+        // @ts-ignore
+        var internetspeed = parseInt(element.dataset.internetspeed);
+        console.log(activeProviders)
+        // @ts-ignore
+        element.classList.add("hidden");
+        // @ts-ignore
+        if (internetspeed>=rangeSpeed[0]&&activeProviders.includes(providerName)){
+          // @ts-ignore
+          element.classList.remove("hidden");
+        }
+      }
+    });
+  }
+  
   return (
 <div className='bg-neutralsilver floating p-4 mx-auto'>
     <aside>
@@ -38,23 +62,15 @@ const SidebarMenu = ({ providers }) => {
           id={provider.providerId}
           style={{ width: '30px', height: '30px' }} // Adjust the width and height as needed
           onChange={() => {
-            const providerElements = document.getElementById("tariffs")?.querySelectorAll("div");
-
-            providerElements?.forEach((element) => {
-              const isMatchingProvider = element.dataset.providername === provider.providerName;
-
-              if (isMatchingProvider) {
-                // @ts-ignore
-                if (document.getElementById(provider.providerId).checked) {
-                  element.classList.remove("hidden");
-                  element.classList.add("visible");
-                } else {
-                  element.classList.remove("visible");
-                  element.classList.add("hidden");
-                }
-              }
-            });
-          }}
+            // @ts-ignore
+            if (activeProviders.includes(provider.providerName)) {
+              // @ts-ignore
+            setActiveProviders(activeProviders.filter(name => name !== provider.providerName));
+          } else {
+            // @ts-ignore
+            setActiveProviders([...activeProviders, provider.providerName]);
+          }
+        CheckTariffs()}}
         />
           <label
           htmlFor={provider.providerId}
@@ -121,13 +137,16 @@ const SidebarMenu = ({ providers }) => {
               fontSize: '20px',
               fontFamily: 'Inter, sans-serif',
               fontWeight: 'bold' 
+              
             }}>Cтоимость тарифа</p>
           <input
             id="default-range-from"
             type="number"
             value={range[0]}
             
-            onChange={(e) => handleSliderChange([Number(e.target.value), range[1]])}
+            onChange={(e) => {handleSliderChange([Number(e.target.value), range[1]]);
+              CheckTariffs()
+            }}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
@@ -135,7 +154,9 @@ const SidebarMenu = ({ providers }) => {
             type="number"
             value={range[1]}
             disabled
-            onChange={(e) => handleSliderChange([range[0], Number(e.target.value)])}
+            onChange={(e) => {handleSliderChange([range[0], Number(e.target.value)]);
+              CheckTariffs()
+            }}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}/>
           <input
             id="default-range"
@@ -144,7 +165,7 @@ const SidebarMenu = ({ providers }) => {
             min={100}
             max={2100}
             value={range[0]}
-            onChange={(e) => handleSliderChange([Number(e.target.value), range[1]])}
+            onChange={(e) => {handleSliderChange([Number(e.target.value), range[1]]);CheckTariffs()}}
           />
         </div>
 
@@ -158,16 +179,16 @@ const SidebarMenu = ({ providers }) => {
           <input
             id="default-range-price-from"
             type="number"
-            value={rangePrice[0]}
-            onChange={(e) => handleSliderPriceChange([Number(e.target.value), rangePrice[1]])}
+            value={rangeSpeed[0]}
+            onChange={(e) => {handleSliderPriceChange([Number(e.target.value), rangeSpeed[1]]);CheckTariffs()}}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
             id="default-range-price-to"
             type="number"
-            value={rangePrice[1]}
+            value={rangeSpeed[1]}
             disabled
-            onChange={(e) => handleSliderPriceChange([rangePrice[0], Number(e.target.value)])}
+            onChange={(e) => {handleSliderPriceChange([rangeSpeed[0], Number(e.target.value)]);CheckTariffs()}}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
@@ -176,8 +197,8 @@ const SidebarMenu = ({ providers }) => {
             className="w-240 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
             min={100}
             max={2100}
-            value={rangePrice[0]}
-            onChange={(e) => handleSliderPriceChange([Number(e.target.value), rangePrice[1]])}
+            value={rangeSpeed[0]}
+            onChange={(e) => {handleSliderPriceChange([Number(e.target.value), rangeSpeed[1]]); CheckTariffs()}}
           />
         </div>
       </div>
