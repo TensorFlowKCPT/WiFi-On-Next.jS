@@ -1,14 +1,32 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
-import TariffModal from './TariffModal'; 
+import TariffModal from './TariffModal';
+import TariffInfo from './TariffInfo';
 
 // @ts-ignore
-const TariffCard = ({ Name, Price, ImageUrl, providerName, Description, onConnectClick }) => {
+const TariffCard = ({ Name, Price, ImageUrl, providerName, Description, PriceOld, Options}) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
   };
+  const optionsArray = Options.split(';');
+
+  // Создаем объект, в котором будем хранить значения
+  const optionsObject = {};
+  optionsArray.forEach((option) => {
+    const [index, value] = option.split(':');
+    
+    // Проверяем, что index и value существуют, прежде чем использовать trim()
+    if (index && value) {
+      optionsObject[index.trim()] = value.trim();
+    }
+  });
+  
+  // Пример использования конкретных значений с "Нет информации"
+  const speedValue = optionsObject['1'] || 'Нет информации';
+  const gigs = optionsObject['3'] || 'Нет информации';
+  const minutes = optionsObject['4'] || 'Нет информации';
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
@@ -27,11 +45,27 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, Description, onConnec
           alt={formattedName}
           src={ImageUrl}
         />
-        <h3 className="text-xl h-[50px] font-semibold mb-5">{formattedName}</h3>
-        <p className="text-gray-600 text-lg mt-10 mb-2">{providerName}</p>
-        <p className="text-lg font-bold text-variable-collection-dark-blue mb-2">
-          {Price} ₽
-        </p>
+        <div className="grid grid-cols-1">
+          <h3 className="col-start-1 text-xl h-[50px] font-semibold mb-5">{formattedName}</h3>
+          <p className="col-start-1 text-gray-600 text-lg mt-10 mb-2">{providerName}</p>
+        </div>
+        <div className="flex items-center">
+          <p className="text-lg font-bold text-variable-collection-dark-blue mb-2 mr-2">
+            {Price} ₽
+          </p>
+          <p className="text-gray-500 text-sm line-through mb-1">
+            {PriceOld} ₽
+          </p>
+        </div>
+
+        <span className="text-gray-500 text-sm">Скорость:</span>
+        <span className="text-lg font-semibold mb-3">{speedValue}</span>
+
+        <span className="text-gray-500 text-sm">Гигабайты:</span>
+        <span className="text-lg font-semibold mb-3">{gigs}</span>
+
+        <span className="text-gray-500 text-sm">Минуты:</span>
+        <span className="text-lg font-semibold mb-3">{minutes}</span>
         <motion.button
           {...fadeInAnimation}
           className="md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
@@ -51,7 +85,7 @@ const TariffCard = ({ Name, Price, ImageUrl, providerName, Description, onConnec
         
         <TariffModal isOpen={modalIsOpen} onRequestClose={closeModal}
         // @ts-ignore
-         tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName, Description }} />
+         tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName, Description, PriceOld, Options }} />
       </div>
     );
   };
