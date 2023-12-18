@@ -44,6 +44,23 @@ interface TariffModalProps {
     borderColor: '#DFDFE6'
   };
 
+  const Options = JSON.parse(tariffInfo.OptionsJSON)
+  var InternetSpeed
+  var GigabytesCount
+  var MinutesCount
+  var ChannelsCount
+  var SMSCount
+  try{
+    InternetSpeed = Options.Values.InternetSpeed[0]
+    GigabytesCount = Options.Values.GigabytesCount[0]
+    MinutesCount = Options.Values.MinutesCount[0]
+    ChannelsCount = Options.Filters.ChannelsCountFilter;
+    SMSCount = Options.Filters.SmsCountFilter;
+  }
+  catch{
+    InternetSpeed = null
+  }
+
 
   return (
     <Modal
@@ -80,17 +97,44 @@ interface TariffModalProps {
           alt={tariffInfo.formattedName}
           src={tariffInfo.ImageUrl}
         />
-        <p className="text-gray-500 text-sm">Провайдер</p>
-        <p className="text-lg font-semibold mb-3">{tariffInfo.providerName}</p>
-        <span className="text-gray-500 text-sm">Цена тарифа</span>
-        <div className="flex items-center">
-          <p className="text-lg font-bold text-variable-collection-dark-blue mb-2 mr-2">
-            {tariffInfo.Price} ₽
-          </p>
-          <p className="text-gray-500 text-sm line-through mb-1">
-            {tariffInfo.PriceOld} ₽
-          </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div>
+          <h4 className="text-gray-500 text-sm">Провайдер</h4>
+          <p className="text-lg font-semibold mb-3">{tariffInfo.providerName}</p>
         </div>
+
+        <div>
+          <h4 className="text-gray-500 text-sm">Цена тарифа</h4>
+          <div className="flex items-center">
+            <p className="text-lg font-bold text-variable-collection-dark-blue mb-2 mr-2">
+              {tariffInfo.Price} ₽
+            </p>
+            <p className="text-gray-500 text-sm line-through mb-1">
+              {tariffInfo.PriceOld} ₽
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-gray-500 text-sm">Каналы</h4>
+          <p className="text-lg font-semibold mb-3">{ChannelsCount}</p>
+        </div>
+
+        <div>
+          <h4 className="text-gray-500 text-sm">Скорость:</h4>
+          <span className="text-lg font-semibold mb-3">{InternetSpeed} м/бит в сек.</span>
+        </div>
+
+        <div>
+          <h4 className="text-gray-500 text-sm">Гигабайты:</h4>
+          <span className="text-lg font-semibold mb-3">{GigabytesCount} гигабайт</span>
+        </div>
+
+        <div>
+          <h4 className="text-gray-500 text-sm">Связь:</h4>
+          <span className="text-lg font-semibold mb-3">{MinutesCount} минут и {SMSCount}</span>
+        </div>
+      </div>
         <p className="text-gray-500 text-sm">Информация</p>
         <p className="text-lg font-semibold mb-3">{descriptionWithCords}</p>
       <div className="flex items-center">

@@ -24,10 +24,12 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
   var InternetSpeed
   var GigabytesCount
   var MinutesCount
+  var SMSCount
   try{
     InternetSpeed = Options.Values.InternetSpeed[0]
     GigabytesCount = Options.Values.GigabytesCount[0]
     MinutesCount = Options.Values.MinutesCount[0]
+    SMSCount = Options.Filters.SmsCountFilter;
   }
   catch{
     InternetSpeed = null
@@ -61,6 +63,9 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
 
         <span className="text-gray-500 text-sm">Минуты:</span>
         <span className="text-lg font-semibold mb-3">{MinutesCount} минут</span>
+
+        <span className="text-gray-500 text-sm">СМС:</span>
+        <span className="text-lg font-semibold mb-3">{SMSCount}</span>
         <motion.button
           {...fadeInAnimation}
           className="md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
@@ -80,7 +85,7 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
         
         <TariffModal isOpen={modalIsOpen} onRequestClose={closeModal}
         // @ts-ignore
-         tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName, Description, PriceOld, Options }} />
+         tariffInfo={{ Name, Price, providerName, ImageUrl, formattedName, Description, PriceOld, OptionsJSON }} />
       </div>
     );
   };
