@@ -2,31 +2,14 @@
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import TariffModal from './TariffModal';
-import TariffInfo from './TariffInfo';
 
 // @ts-ignore
-const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Description, PriceOld, Options}) => {
+const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Description, PriceOld}) => {
   const fadeInAnimation = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
   };
-  const optionsArray = Options.split(';');
-
-  // Создаем объект, в котором будем хранить значения
-  const optionsObject = {};
-  optionsArray.forEach((option) => {
-    const [index, value] = option.split(':');
-    
-    // Проверяем, что index и value существуют, прежде чем использовать trim()
-    if (index && value) {
-      optionsObject[index.trim()] = value.trim();
-    }
-  });
   
-  // Пример использования конкретных значений с "Нет информации"
-  const speedValue = optionsObject['1'] || 'Нет информации';
-  const gigs = optionsObject['3'] || 'Нет информации';
-  const minutes = optionsObject['4'] || 'Нет информации';
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
@@ -39,8 +22,12 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
   const formattedName = Name.replace(/[-_]/g, ''); 
   const Options = JSON.parse(OptionsJSON)
   var InternetSpeed
+  var GigabytesCount
+  var MinutesCount
   try{
     InternetSpeed = Options.Values.InternetSpeed[0]
+    GigabytesCount = Options.Values.GigabytesCount[0]
+    MinutesCount = Options.Values.MinutesCount[0]
   }
   catch{
     InternetSpeed = null
@@ -67,13 +54,13 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
         </div>
 
         <span className="text-gray-500 text-sm">Скорость:</span>
-        <span className="text-lg font-semibold mb-3">{speedValue}</span>
+        <span className="text-lg font-semibold mb-3">{InternetSpeed} м/бит в сек.</span>
 
         <span className="text-gray-500 text-sm">Гигабайты:</span>
-        <span className="text-lg font-semibold mb-3">{gigs}</span>
+        <span className="text-lg font-semibold mb-3">{GigabytesCount} гигабайт</span>
 
         <span className="text-gray-500 text-sm">Минуты:</span>
-        <span className="text-lg font-semibold mb-3">{minutes}</span>
+        <span className="text-lg font-semibold mb-3">{MinutesCount} минут</span>
         <motion.button
           {...fadeInAnimation}
           className="md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
