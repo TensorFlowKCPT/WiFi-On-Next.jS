@@ -36,7 +36,7 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
   }
   
   return (
-      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center hidden" data-internetspeed={InternetSpeed} data-providerName={providerName} data-price={Price}>
+      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center" data-internetspeed={InternetSpeed} data-providerName={providerName} data-price={Price}>
         <img
           style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
           alt={formattedName}
@@ -50,22 +50,44 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
           <p className="text-lg font-bold text-variable-collection-dark-blue mb-2 mr-2">
             {Price} ₽
           </p>
-          <p className="text-gray-500 text-sm line-through mb-1">
-            {PriceOld} ₽
-          </p>
+          {PriceOld !== 0 ? (
+            <p className="text-gray-500 text-sm line-through mb-1">
+              {PriceOld} ₽
+            </p>
+          ) : (
+            <p className="text-green-500 text-sm mb-1">Новинка!</p>
+          )}
+        </div>
+        <div>
+          <div className="flex flex-col mb-3">
+            <span className="text-gray-500 text-sm">Скорость:</span>
+            <span className="text-lg font-semibold">
+              {InternetSpeed != null ? `${InternetSpeed} м/бит в сек.` : 'Нет информации'}
+            </span>
+          </div>
+
+          <div className="flex flex-col mb-3">
+            <span className="text-gray-500 text-sm">Гигабайты:</span>
+            <span className="text-lg font-semibold">
+              {GigabytesCount != null ? `${GigabytesCount} гигабайт` : 'Нет информации'}
+            </span>
+          </div>
+
+          <div className="flex flex-col mb-3">
+            <span className="text-gray-500 text-sm">Минуты:</span>
+            <span className="text-lg font-semibold">
+              {MinutesCount != null ? `${MinutesCount} минут` : 'Нет информации'}
+            </span>
+          </div>
+
+          <div className="flex flex-col mb-3">
+            <span className="text-gray-500 text-sm">СМС:</span>
+            <span className="text-lg font-semibold">
+              {SMSCount != null ? SMSCount : 'Нет информации'}
+            </span>
+          </div>
         </div>
 
-        <span className="text-gray-500 text-sm">Скорость:</span>
-        <span className="text-lg font-semibold mb-3">{InternetSpeed} м/бит в сек.</span>
-
-        <span className="text-gray-500 text-sm">Гигабайты:</span>
-        <span className="text-lg font-semibold mb-3">{GigabytesCount} гигабайт</span>
-
-        <span className="text-gray-500 text-sm">Минуты:</span>
-        <span className="text-lg font-semibold mb-3">{MinutesCount} минут</span>
-
-        <span className="text-gray-500 text-sm">СМС:</span>
-        <span className="text-lg font-semibold mb-3">{SMSCount}</span>
         <motion.button
           {...fadeInAnimation}
           className="md:flex w-[156px] h-[50px] items-center gap-10 px-[20px] py-[10px] bg-[#2a6f97] rounded-[10px] all-[unset] box-border"
