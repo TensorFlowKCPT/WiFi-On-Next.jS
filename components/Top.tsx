@@ -133,8 +133,6 @@ export const Top = (): JSX.Element => {
                   delaySpeed={1500}
                 />
               </span>
-
-
           </motion.p>
           <motion.p
             {...fadeInAnimation}

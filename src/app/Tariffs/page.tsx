@@ -9,7 +9,6 @@ import Sidemenu from "components/filterSideMenu";
 // @ts-ignore
 import Tariffs from "components/tariffs";
 // @ts-ignore
-import ProviderTable from "components/ProviderTable"
 import { motion } from 'framer-motion';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import Providers from '../Providers/page';
@@ -77,7 +76,6 @@ const tariffs: React.FC = () => {
       <Header />
       <div className="flex">
         <Sidemenu providers = {providers}/>
-        <ProviderTable providers = {providers}/>
         <div className="flex-1 mt-10">
           <Tariffs tariffs = {tariffs}/>
         </div>

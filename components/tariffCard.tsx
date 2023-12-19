@@ -36,7 +36,7 @@ const TariffCard = ({ Name, Price, ImageUrl, OptionsJSON, providerName, Descript
   }
   
   return (
-      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center hidden" data-internetspeed={InternetSpeed} data-providerName={providerName} data-price={Price}>
+      <div className="relative border border-gray-300 p-4 rounded-md shadow-md flex flex-col items-center justify-center text-center" data-internetspeed={InternetSpeed} data-providerName={providerName} data-price={Price}>
         <img
           style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
           alt={formattedName}

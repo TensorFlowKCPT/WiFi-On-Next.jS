@@ -5,6 +5,7 @@ import TariffCard from "components/tariffCard"; // Путь к вашему ко
 import { motion } from "framer-motion";
 // @ts-ignore
 export const Tariffs = ({ tariffs }): JSX.Element => {
+
   const fadeInAnimation = {
     initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },

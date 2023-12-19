@@ -4,25 +4,30 @@ import { useEffect } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { debounce } from 'chart.js/helpers';
-
+//@ts-ignore
+var activeProviders = []
 // @ts-ignore
 const SidebarMenu = ({ providers }) => {
 
   const [range, setRange] = useState([70, 2000]);
   const [rangeSpeed, setRangeSpeed] = useState([240, 1910]);
-  const [activeProviders, setActiveProviders] = useState([]);
+  
+  
 
 // @ts-ignore
   const handleSliderChange = (value) => {
+    //@ts-ignore
     setRange(value);
+    CheckTariffs()
   };
 // @ts-ignore
-  const handleSliderPriceChange = (value) => {
+  const handleSliderSpeedChange = (value) => {
+    //@ts-ignore
     setRangeSpeed(value);
+    CheckTariffs()
   };
   function CheckTariffs(){
     var tariffsContainer = document.getElementById("tariffs");
-    
     // Перебираем все потомки элемента с id "tariffs"
     tariffsContainer?.childNodes.forEach(element => {
       if (element.nodeType === 1) {
@@ -30,11 +35,14 @@ const SidebarMenu = ({ providers }) => {
         var providerName = element.dataset.providername;
         // @ts-ignore
         var internetspeed = parseInt(element.dataset.internetspeed);
+        //@ts-ignore
         console.log(activeProviders)
+        console.log(internetspeed)
+        console.log(providerName)
         // @ts-ignore
         element.classList.add("hidden");
         // @ts-ignore
-        if (internetspeed>=rangeSpeed[0]&&activeProviders.includes(providerName)){
+        if ((internetspeed>=rangeSpeed[0]||Number.isNaN(internetspeed))&&(activeProviders.includes(providerName)||activeProviders.length == 0)){
           // @ts-ignore
           element.classList.remove("hidden");
         }
@@ -61,16 +69,18 @@ const SidebarMenu = ({ providers }) => {
           type="checkbox"
           id={provider.providerId}
           style={{ width: '30px', height: '30px' }} // Adjust the width and height as needed
-          onChange={() => {
-            // @ts-ignore
-            if (activeProviders.includes(provider.providerName)) {
-              // @ts-ignore
-            setActiveProviders(activeProviders.filter(name => name !== provider.providerName));
-          } else {
-            // @ts-ignore
-            setActiveProviders([...activeProviders, provider.providerName]);
-          }
-        CheckTariffs()}}
+          onChange={(e) => {
+            const isChecked = e.target.checked;
+          
+            if (isChecked) {
+              // Если чекбокс отмечен, добавляем провайдера
+              activeProviders.push(provider.providerName)
+            } else {
+              //@ts-ignore
+              activeProviders = activeProviders.filter((name) => name !== provider.providerName)
+            }
+            CheckTariffs()}}
+          
         />
           <label
           htmlFor={provider.providerId}
@@ -144,7 +154,8 @@ const SidebarMenu = ({ providers }) => {
             type="number"
             value={range[0]}
             
-            onChange={(e) => {handleSliderChange([Number(e.target.value), range[1]]);
+            onChange={(e) => {
+              //handleSliderChange([Number(e.target.value), range[1]]);
               CheckTariffs()
             }}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
@@ -154,8 +165,8 @@ const SidebarMenu = ({ providers }) => {
             type="number"
             value={range[1]}
             disabled
-            onChange={(e) => {handleSliderChange([range[0], Number(e.target.value)]);
-              CheckTariffs()
+            onChange={(e) => {
+              //handleSliderChange([range[0], Number(e.target.value)]);
             }}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}/>
           <input
@@ -165,7 +176,9 @@ const SidebarMenu = ({ providers }) => {
             min={100}
             max={2100}
             value={range[0]}
-            onChange={(e) => {handleSliderChange([Number(e.target.value), range[1]]);CheckTariffs()}}
+            onChange={(e) => {
+              //handleSliderChange([Number(e.target.value), range[1]]);
+              CheckTariffs()}}
           />
         </div>
 
@@ -180,7 +193,8 @@ const SidebarMenu = ({ providers }) => {
             id="default-range-price-from"
             type="number"
             value={rangeSpeed[0]}
-            onChange={(e) => {handleSliderPriceChange([Number(e.target.value), rangeSpeed[1]]);CheckTariffs()}}
+            onChange={(e) => {
+              handleSliderSpeedChange([Number(e.target.value), rangeSpeed[1]])}}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
@@ -188,7 +202,8 @@ const SidebarMenu = ({ providers }) => {
             type="number"
             value={rangeSpeed[1]}
             disabled
-            onChange={(e) => {handleSliderPriceChange([rangeSpeed[0], Number(e.target.value)]);CheckTariffs()}}
+            onChange={(e) => {
+              handleSliderSpeedChange([rangeSpeed[0], Number(e.target.value)])}}
             style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
@@ -198,7 +213,8 @@ const SidebarMenu = ({ providers }) => {
             min={100}
             max={2100}
             value={rangeSpeed[0]}
-            onChange={(e) => {handleSliderPriceChange([Number(e.target.value), rangeSpeed[1]]); CheckTariffs()}}
+            onChange={(e) => {
+              handleSliderSpeedChange([Number(e.target.value), rangeSpeed[1]])}}
           />
         </div>
       </div>
