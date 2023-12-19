@@ -13,8 +13,7 @@ interface TariffModalProps {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
   };
-  const cordsValue = <Cords />;
-  const descriptionWithCords = tariffInfo.Description.replace('{name_city}', cordsValue); 
+  const descriptionWithoutCity = tariffInfo.Description.replace('в {name_city}', '');
 
   const iconStyle = {
     backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets/TEMP/17ffe372-dd0d-418f-9408-9f3f14c7765d?)',
@@ -109,25 +108,35 @@ interface TariffModalProps {
             <p className="text-lg font-bold text-variable-collection-dark-blue mb-2 mr-2">
               {tariffInfo.Price} ₽
             </p>
-            <p className="text-gray-500 text-sm line-through mb-1">
-              {tariffInfo.PriceOld} ₽
-            </p>
+            {tariffInfo.PriceOld !== 0 && (
+              <p className="text-gray-500 text-sm line-through mb-1">
+                {tariffInfo.PriceOld} ₽
+              </p>
+            )}
           </div>
         </div>
 
         <div>
           <h4 className="text-gray-500 text-sm">Каналы</h4>
-          <p className="text-lg font-semibold mb-3">{ChannelsCount}</p>
+          <span className="text-lg font-semibold mb-3">
+            {ChannelsCount != null ? ChannelsCount : 'Нет информации'}
+          </span>
         </div>
 
         <div>
           <h4 className="text-gray-500 text-sm">Скорость:</h4>
-          <span className="text-lg font-semibold mb-3">{InternetSpeed} м/бит в сек.</span>
+          <span className="text-lg font-semibold mb-3">
+            {InternetSpeed != null ? `${InternetSpeed} м/бит в сек.` : 'Нет информации'}
+          </span>
         </div>
 
         <div>
           <h4 className="text-gray-500 text-sm">Гигабайты:</h4>
-          <span className="text-lg font-semibold mb-3">{GigabytesCount} гигабайт</span>
+          <span className="text-lg font-semibold mb-3">
+            {MinutesCount != null && SMSCount != null
+              ? `${MinutesCount} минут и ${SMSCount}`
+              : 'Нет информации'}
+          </span>
         </div>
 
         <div>
@@ -136,7 +145,10 @@ interface TariffModalProps {
         </div>
       </div>
         <p className="text-gray-500 text-sm">Информация</p>
-        <p className="text-lg font-semibold mb-3">{descriptionWithCords}</p>
+        <div className="flex items-center">
+          <p className="text-lg font-semibold mb-3">{descriptionWithoutCity} </p>
+          <p className="text-lg font-semibold mb-3 ml-1"><Cords /></p>
+        </div>
       <div className="flex items-center">
       <input
           type="text"
