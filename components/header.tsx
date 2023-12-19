@@ -156,7 +156,7 @@ const Header = (): JSX.Element => {
         {...fadeInAnimation}
         className="hidden md:flex items-center justify-center gap-10 px-20 h-full"
       >
-        <a href={`/Tariffs?adress=${userCity}`}>
+        <a href={`/Tariffs?address=${userCity}`}>
           <motion.div
             {...fadeInAnimation}
             className="relative font-semibold text-text-gray-900 text-[20px] tracking-[0] leading-[24px] whitespace-nowrap {styles['nav-link']}"
