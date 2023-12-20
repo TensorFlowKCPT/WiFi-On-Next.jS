@@ -1,34 +1,52 @@
-'use client';
-import React, { Component } from 'react'; 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { Carousel } from 'react-responsive-carousel'; 
-  
-export default class NextJsCarousel extends Component { 
-    render() { 
+import React, { Component } from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
+export default class NextJsCarousel extends Component {
+    render() {
         const carouselOptions = {
-            showThumbs: false,
+            showThumbs: false,  // Скрыть миниатюры
+            showArrows: false,  // Скрыть стрелки
+            showStatus: false,  // Скрыть статус (текущий слайд / общее количество слайдов)
+            showIndicators: false,  // Скрыть индикаторы (точки внизу)
+            infiniteLoop: true,  // Зациклить карусель
+            useKeyboardArrows: true,  // Использовать стрелки на клавиатуре
+            autoPlay: true,  // Автоматическое воспроизведение
+            dynamicHeight: false,  // Фиксированная высота слайдов
+            swipeable: true,  // Включить свайп
+            emulateTouch: true,  // Эмулировать тач (например, на устройствах без тач-экрана)
         };
 
-        return ( 
-            <div className='w-[200px] h-[200px]'> 
-                <Carousel {...carouselOptions}> 
-                    <div className='w-[200px] h-[200px]'> 
-                        <img src="/beeline.png" className='w-[200px] h-[200px]' alt="image1"/> 
-                    </div> 
-                    <div className='w-[200px] h-[200px]'> 
-                        <img src="/domru.png" className='w-[200px] h-[200px]' alt="image2" /> 
-                    </div > 
-                    <div className='w-[200px] h-[200px]'> 
-                        <img src="/megafon.png" className='w-[200px] h-[200px]' alt="image3"/> 
-                    </div> 
-                    <div className='w-[200px] h-[200px]'> 
-                        <img src="/mts.png" className='w-[200px] h-[200px]' alt="image4"/> 
-                    </div> 
-                    <div className='w-[200px] h-[200px]'> 
-                        <img src="/rtk.png" className='w-[200px] h-[200px]' alt="image5"/> 
-                    </div> 
-                </Carousel> 
-            </div> 
-        ); 
-    } 
-};
+        const containerStyle = {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        };
+
+        const imageStyle = {
+            width: '300px',
+            height: '300px',
+        };
+
+        return (   
+            <div style={containerStyle}>
+                <div>
+                    <Carousel {...carouselOptions}>
+                        <div>
+                            <img src="/beeline.png" style={imageStyle} alt="image1"/>
+                        </div>
+                        <div>
+                            <img src="/domru.png" style={imageStyle} alt="image2" />
+                        </div>
+                        <div>
+                            <img src="/megafon.png" style={imageStyle} alt="image3"/>
+                        </div>
+                        <div>
+                            <img src="/rtk.png" style={imageStyle} alt="image5"/>
+                        </div>
+                    </Carousel>
+                </div>
+            </div>
+        );
+    }
+}

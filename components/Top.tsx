@@ -121,10 +121,10 @@ export const Top = (): JSX.Element => {
             <span className="block text-[#2c7da0]">провайдера</span>
             <Cords/>
             <span className="block text-[#2c7da0]">здесь</span>
-              <span className="block text-[#012a4a] text-5xl" style={{ display: 'inline-block', marginRight: '10px' }}>Подключите</span>
-              <span style={{ color: '#2c7da0', fontWeight: 'bold', fontSize: '50px', display: 'inline-block' }}>
+              <span className="inline-block text-[#012a4a] mr-2">Подключите </span>
+              <span className="inline-block text-[#2c7da0]">
                 <Typewriter
-                  words={['Интернет', 'Телевидение', 'Связь']}
+                  words={['Связь', 'ТВ', 'Интернет']}
                   loop={3}
                   cursor
                   cursorStyle='|'
