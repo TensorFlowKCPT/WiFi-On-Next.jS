@@ -1,9 +1,12 @@
-'use client';
+'use client'
 import React, { useState } from 'react';
-import { useEffect } from 'react';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
-import { debounce } from 'chart.js/helpers';
+import Drawer from '@mui/material/Drawer';
+import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
+import { styled } from '@mui/material/styles';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
 //@ts-ignore
 var activeProviders = []
 // @ts-ignore
@@ -11,7 +14,11 @@ const SidebarMenu = ({ providers }) => {
 
   const [range, setRange] = useState([70, 2000]);
   const [rangeSpeed, setRangeSpeed] = useState([240, 1910]);
-  
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
   
 
 // @ts-ignore
@@ -20,6 +27,36 @@ const SidebarMenu = ({ providers }) => {
     setRange(value);
     CheckTariffs()
   };
+  const AirbnbSlider = styled(Slider)(({ theme }) => ({
+    color: '#012a4a',
+    height: 3,
+    maxWidth: '210px', // Limit the width to the container's width
+    '& .MuiSlider-thumb': {
+      height: 15,
+      width: 15,
+      backgroundColor: '#fff',
+      border: '1px solid currentColor',
+      '&:hover': {
+        boxShadow: '0 0 0 8px rgba(58, 133, 137, 0.16)',
+      },
+      '& .airbnb-bar': {
+        height: 9,
+        width: 1,
+        backgroundColor: 'currentColor',
+        marginLeft: 1,
+        marginRight: 1,
+      },
+    },
+    '& .MuiSlider-track': {
+      height: 3,
+    },
+    '& .MuiSlider-rail': {
+      color: theme.palette.mode === 'dark' ? '#bfbfbf' : '#d8d8d8',
+      opacity: theme.palette.mode === 'dark' ? undefined : 1,
+      height: 3,
+    },
+  }));
+  
 // @ts-ignore
   const handleSliderSpeedChange = (value) => {
     //@ts-ignore
@@ -51,8 +88,11 @@ const SidebarMenu = ({ providers }) => {
   }
   
   return (
-<div className='bg-neutralsilver floating p-4 mx-auto'>
-    <aside>
+<div className='bg-neutralsilver floating p-4 mx-auto'>      
+<FilterAltIcon className="mobile-menu-button" onClick={toggleDrawer} />
+
+    <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer} >
+    <span className="block text-[#012a4a] font-semibold text-4xl mb-10 ml-5 mt-5">Фильтры</span>
      <label 
      style={{
               marginLeft: '8px',
@@ -141,24 +181,26 @@ const SidebarMenu = ({ providers }) => {
 
       {/* Example sliders */}
       <div>
-        <div>
-          <p  style={{
+      <p
+            style={{
               marginLeft: '8px',
               fontSize: '20px',
               fontFamily: 'Inter, sans-serif',
-              fontWeight: 'bold' 
-              
-            }}>Cтоимость тарифа</p>
+              fontWeight: 'bold',
+            }}
+          >
+            Cтоимость тарифа
+          </p>
+      <div>
           <input
             id="default-range-from"
             type="number"
             value={range[0]}
-            
             onChange={(e) => {
               //handleSliderChange([Number(e.target.value), range[1]]);
-              CheckTariffs()
+              CheckTariffs();
             }}
-            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
+            style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
             id="default-range-to"
@@ -168,34 +210,36 @@ const SidebarMenu = ({ providers }) => {
             onChange={(e) => {
               //handleSliderChange([range[0], Number(e.target.value)]);
             }}
-            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}/>
-          <input
+            style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '10px' }}
+          />
+          <AirbnbSlider
             id="default-range"
-            type="range"
-            className="w-240 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+            className='ml-3 '
+            onChange={(e, value) => {
+              // handleSliderChange([value, range[1]]);
+              CheckTariffs();
+            }}
             min={100}
             max={2100}
-            value={range[0]}
-            onChange={(e) => {
-              //handleSliderChange([Number(e.target.value), range[1]]);
-              CheckTariffs()}}
+            defaultValue={[150, 650]}
+            valueLabelDisplay="auto" // Optional: To display the current value on the slider thumb
           />
         </div>
-
-        <div>
-          <p  style={{
+        <p  style={{
               marginLeft: '8px',
               fontSize: '20px',
               fontFamily: 'Inter, sans-serif',
               fontWeight: 'bold' 
             }}>Скорость интернета</p>
+        <div>
+
           <input
             id="default-range-price-from"
             type="number"
             value={rangeSpeed[0]}
             onChange={(e) => {
               handleSliderSpeedChange([Number(e.target.value), rangeSpeed[1]])}}
-            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
+            style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
             id="default-range-price-to"
@@ -204,21 +248,23 @@ const SidebarMenu = ({ providers }) => {
             disabled
             onChange={(e) => {
               handleSliderSpeedChange([rangeSpeed[0], Number(e.target.value)])}}
-            style={{ width: '60px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
+            style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
-          <input
-            id="default-range-price"
-            type="range"
-            className="w-240 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          <AirbnbSlider
+            id="default-range"
+            className='ml-3 mr-3'
+            onChange={(e, value) => {
+              // handleSliderChange([value, range[1]]);
+              CheckTariffs();
+            }}
             min={100}
             max={2100}
-            value={rangeSpeed[0]}
-            onChange={(e) => {
-              handleSliderSpeedChange([Number(e.target.value), rangeSpeed[1]])}}
+            defaultValue={[150, 650]}
+            valueLabelDisplay="auto" // Optional: To display the current value on the slider thumb
           />
         </div>
       </div>
-      </aside>
+      </Drawer>
     </div>
 
   );
