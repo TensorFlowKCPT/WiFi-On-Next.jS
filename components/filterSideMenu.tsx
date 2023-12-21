@@ -16,17 +16,10 @@ const SidebarMenu = ({ providers }) => {
   const [rangeSpeed, setRangeSpeed] = useState([240, 1910]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => {
+   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
   
-
-// @ts-ignore
-  const handleSliderChange = (value) => {
-    //@ts-ignore
-    setRange(value);
-    CheckTariffs()
-  };
   const AirbnbSlider = styled(Slider)(({ theme }) => ({
     color: '#012a4a',
     height: 3,
@@ -57,12 +50,6 @@ const SidebarMenu = ({ providers }) => {
     },
   }));
   
-// @ts-ignore
-  const handleSliderSpeedChange = (value) => {
-    //@ts-ignore
-    setRangeSpeed(value);
-    CheckTariffs()
-  };
   function CheckTariffs(){
     var tariffsContainer = document.getElementById("tariffs");
     // Перебираем все потомки элемента с id "tariffs"
@@ -72,14 +59,12 @@ const SidebarMenu = ({ providers }) => {
         var providerName = element.dataset.providername;
         // @ts-ignore
         var internetspeed = parseInt(element.dataset.internetspeed);
-        //@ts-ignore
-        console.log(activeProviders)
-        console.log(internetspeed)
-        console.log(providerName)
+        // @ts-ignore
+        var price = parseInt(element.dataset.price);
         // @ts-ignore
         element.classList.add("hidden");
         // @ts-ignore
-        if ((internetspeed>=rangeSpeed[0]||Number.isNaN(internetspeed))&&(activeProviders.includes(providerName)||activeProviders.length == 0)){
+        if (((internetspeed>=rangeSpeed[0]&&internetspeed<=rangeSpeed[1])||Number.isNaN(internetspeed))&&((price>=range[0]&&price<=range[1])||Number.isNaN(price))&&(activeProviders.includes(providerName)||activeProviders.length == 0)){
           // @ts-ignore
           element.classList.remove("hidden");
         }
@@ -191,14 +176,14 @@ const SidebarMenu = ({ providers }) => {
           >
             Cтоимость тарифа
           </p>
-      <div>
+       <div>
           <input
             id="default-range-from"
             type="number"
             value={range[0]}
             onChange={(e) => {
-              //handleSliderChange([Number(e.target.value), range[1]]);
-              CheckTariffs();
+              setRange([Number(e.target.value), range[1]]);
+              CheckTariffs()
             }}
             style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
@@ -208,23 +193,26 @@ const SidebarMenu = ({ providers }) => {
             value={range[1]}
             disabled
             onChange={(e) => {
-              //handleSliderChange([range[0], Number(e.target.value)]);
+              setRange([range[0], Number(e.target.value)]);
+              CheckTariffs()
             }}
             style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '10px' }}
           />
           <AirbnbSlider
             id="default-range"
             className='ml-3 '
-            onChange={(e, value) => {
-              // handleSliderChange([value, range[1]]);
-              CheckTariffs();
+            onChange={(e, values) => {
+              //@ts-ignore
+              setRange(values);
+              CheckTariffs()
             }}
+            value={range}
             min={100}
             max={2100}
             defaultValue={[150, 650]}
             valueLabelDisplay="auto" // Optional: To display the current value on the slider thumb
           />
-        </div>
+        </div> 
         <p  style={{
               marginLeft: '8px',
               fontSize: '20px',
@@ -238,7 +226,8 @@ const SidebarMenu = ({ providers }) => {
             type="number"
             value={rangeSpeed[0]}
             onChange={(e) => {
-              handleSliderSpeedChange([Number(e.target.value), rangeSpeed[1]])}}
+              setRangeSpeed([Number(e.target.value), rangeSpeed[1]])
+              CheckTariffs();}}
             style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <input
@@ -247,18 +236,22 @@ const SidebarMenu = ({ providers }) => {
             value={rangeSpeed[1]}
             disabled
             onChange={(e) => {
-              handleSliderSpeedChange([rangeSpeed[0], Number(e.target.value)])}}
+              setRangeSpeed([rangeSpeed[0], Number(e.target.value)])
+              CheckTariffs();}}
             style={{ width: '100px', height: '30px', borderRadius: '8px', marginLeft: '8px' }}
           />
           <AirbnbSlider
             id="default-range"
             className='ml-3 mr-3'
-            onChange={(e, value) => {
-              // handleSliderChange([value, range[1]]);
+            //@ts-ignore
+            onChange={(e, values) => {
+              //@ts-ignore
+              setRangeSpeed(values);
               CheckTariffs();
             }}
             min={100}
             max={2100}
+            value={rangeSpeed}
             defaultValue={[150, 650]}
             valueLabelDisplay="auto" // Optional: To display the current value on the slider thumb
           />
